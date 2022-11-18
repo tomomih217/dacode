@@ -1,36 +1,16 @@
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="#">クソコードは消えない</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Game Start</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ranking</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Contents
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Vanish DaCode</a></li>
-                <li><a class="dropdown-item" href="#">Grave</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>
-            </ul>
+<div class='jumbotron' style='background-image:url(images/top.jpg); background-size:cover;'>
+    <div class='container d-flex align-items-center justify-content-center' style='height:500px;'>
+        <div class='row'>
+            <h1 class='text-center'>クソコードを破壊せよ</h1>
+            <h4 class='text-center'>- Vanish DaCode -</h4>
+            <div class='text-center mt-5 col-sm-10 offset-sm-1'>
+                <p>タイポ、ロジックミス、あらゆるエンジニアたちが頭を悩ませてきたクソコード。</p>
+                <p>さあ、今こそ駆逐する時。</p>
+                <p>この謎を解き明かし、クソコードを破壊せよ！</p>
+            </div>
+            <div class='text-center mt-3'>
+                <%= link_to 'Game Start', '#', class: 'btn btn-lg btn-outline-secondary' %>
+            </div>
         </div>
-        </div>
-    </nav>
-</header>
-
-<h1>StaticPages#top</h1>
-<p>Find me in app/views/static_pages/top.html.erb</p>
+    </div>
+</div>
