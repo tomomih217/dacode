@@ -1,15 +1,74 @@
-<div class='jumbotron' style='background-image:url(images/top.jpg); background-size:cover;'>
-    <div class='container d-flex align-items-center justify-content-center' style='height:500px;'>
-        <div class='row'>
-            <h1 class='text-center'>クソコードを破壊せよ</h1>
-            <h4 class='text-center'>- Vanish DaCode -</h4>
-            <div class='text-center mt-5 col-sm-10 offset-sm-1'>
-                <p>タイポ、ロジックミス、あらゆるエンジニアたちが頭を悩ませてきたクソコード。</p>
+<div class='container'>
+    <div class='row'>
+        <div class='my-5'>
+            <div class='text-center col-sm-10 offset-sm-1'>
+                <p>タイポ、ロジックミス。<br>あらゆるエンジニアたちが頭を悩ませてきたクソコード。</p>
                 <p>さあ、今こそ駆逐する時。</p>
-                <p>この謎を解き明かし、クソコードを破壊せよ！</p>
+                <h3>この謎を解き明かし、クソコードを破壊せよ！</h3>
+            </div>
+            <div class='text-center'>
+                <%= image_tag 'top_image.png', size: '300x200' %>
             </div>
             <div class='text-center mt-3'>
                 <%= link_to 'Game Start', '#', class: 'btn btn-lg btn-outline-secondary' %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class='bg-secondary text-light'>
+    <div class='container'>
+        <div class='row'>
+            <div class='my-5'>
+                <div class='col-sm-10 offset-sm-1 text-center'>
+                    <p>
+                        Ruby初学者を対象としたクイズゲームです。<br>
+                        Rubyを学習していなくても、プログラミングの知識があればどなたでもご参加いただけます。
+                    </p>
+                </div>
+                <div class='text-center'>
+                    <%= image_tag 'top_bomb.png', size: '150x150' %>
+                </div>
+                <div class='text-center mt-5'>
+                    <%= link_to 'Game Start', '#', class: 'btn btn-lg btn-primary' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='bg-light text-dark'>
+    <div class='container'>
+        <div class='row'>
+            <div class='my-5'>
+                <div class='col-sm-10 offset-sm-1 text-center'>
+                    <p>他の人の成績を見てみましょう。</p>
+                </div>
+                <div class='text-center'>
+                    <%= image_tag 'top_ranking.png', size: '150x150' %>
+                </div>
+                <div class='text-center mt-5'>
+                    <%= link_to 'Ranking', '#', class: 'btn btn-lg btn-outline-secondary' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='bg-secondary text-light'>
+    <div class='container'>
+        <div class='row'>
+            <div class='my-5'>
+                <div class='col-sm-10 offset-sm-1 text-center'>
+                    <p>供養されたクソコードを覗いて見ますか？</p>
+                </div>
+                <div class='text-center'>
+                    <%= image_tag 'top_grave.png', size: '150x150' %>
+                </div>
+                <div class='text-center mt-5'>
+                    <%= link_to 'Grave', '#', class: 'btn btn-lg btn-light' %>
+                </div>
             </div>
         </div>
     </div>
