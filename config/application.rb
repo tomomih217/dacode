@@ -15,5 +15,12 @@ module DisableToVanishDacode
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.generators do |g|
+      g.assets false #assets生成しない
+      g.helper false #helper生成しない
+      g.test_framework false #test生成しない
+      g.skip_routes true #ルーティング生成しない
+   end
   end
 end
