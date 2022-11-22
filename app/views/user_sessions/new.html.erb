@@ -13,7 +13,11 @@
         </div>
         <%= f.submit nil, class: 'btn btn-primary' %>
       <% end %>
-      <%= link_to 'Signup', new_user_path, class: 'mt-3 text-center' %>
+      <div class='text-center mt-3'>
+        <%= link_to 'Signup', new_user_path %>
+        /
+        <%= link_to 'Forget your Password?', '#' %>
+      </div>
     </div>
   </div>
 </div>
