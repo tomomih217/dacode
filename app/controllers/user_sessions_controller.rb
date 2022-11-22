@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+    skip_before_action :require_login
+
     def new; end
 
     def create
@@ -11,6 +13,8 @@ class UserSessionsController < ApplicationController
     end
 
     def destroy
+        logout
+        redirect_to root_url
     end
 
     private
