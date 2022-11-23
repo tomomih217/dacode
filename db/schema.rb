@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2022_11_23_130124) do
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "user_id"
+    t.string "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_records_on_user_id"
