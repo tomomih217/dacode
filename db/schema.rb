@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_24_005758) do
+ActiveRecord::Schema.define(version: 2022_12_08_043155) do
 
   create_table "levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2022_11_24_005758) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "level_id"
+    t.integer "status", default: 0, null: false
     t.index ["level_id"], name: "index_records_on_level_id"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
