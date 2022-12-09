@@ -1,0 +1,25 @@
+<div class='container'>
+  <div class='row'>
+    <div class='my-5'>
+      <div class='text-center col-sm-8 offset-sm-2'>
+      <table class='table table-stripe'>
+        <thead>
+          <th>Level</th>
+          <th>Result</th>
+          <th>Time</th>
+        </thead>
+        <tbody>
+        <% @records.each do |record| %>
+          <tr>
+            <td><%= record.level.id %></td>
+            <td><%= record.status %></td>
+            <td>クリアタイム</td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+            

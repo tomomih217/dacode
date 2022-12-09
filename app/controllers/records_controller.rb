@@ -1,4 +1,9 @@
 class RecordsController < ApplicationController
+  # 自分のタイム一覧
+  def index
+    @records = current_user.records
+  end
+
   # タイム計測スタート
   def create
     record = current_user.records.build(level_id: params[:id])
@@ -6,6 +11,7 @@ class RecordsController < ApplicationController
     redirect_to level_introduction_path(params[:id])
   end
 
+  # タイム計測ストップ
   def update
     record = current_user.records.find_by(level_id: params[:id])
     params[:commit] == 'クリア' ? status = 2 : status = 1
