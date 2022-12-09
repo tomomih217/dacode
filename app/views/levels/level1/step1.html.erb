@@ -1,0 +1,12 @@
+<div class='container'>
+  <div class='row'>
+    <div class='my-5'>
+      <div class='text-center col-sm-10 offset-sm-1'>
+        <%= form_with model: @record, local: true, method: :patch do |f| %>
+          <%= f.submit 'クリア', class: 'btn btn-primary' %>
+          <%= f.submit 'ギブアップ', class: 'btn btn-gray' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

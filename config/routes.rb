@@ -11,5 +11,9 @@ Rails.application.routes.draw do
     member do
       resources :records, only: %i[create update]
     end
+    scope module: :levels do
+      get 'introduction', to: 'level1#introduction'
+      get 'step1', to: 'level1#step1'
+    end
   end
 end
