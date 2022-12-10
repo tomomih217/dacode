@@ -9,27 +9,24 @@
         <ul class="navbar-nav">
           <% if logged_in? %>
             <li class="nav-item">
-              <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %>
+              <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to 'Login', login_path, class: 'nav-link active' %>
+              <%= link_to 'ログイン', login_path, class: 'nav-link active' %>
             </li>
           <% end %>
           <li class="nav-item">
-            <%= link_to 'Game Start', levels_path, class: 'nav-link' %>
+            <%= link_to 'ゲームスタート', levels_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Ranking</a>
+            <a class="nav-link" href="#">ランキング</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Contents
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Vanish DaCode</a></li>
-              <li><a class="dropdown-item" href="#">Grave</a></li>
-            </ul>
+          <li>
+            <a class="nav-link" href='#'>クソコード破壊</a>
+          </li>
+          <li>
+            <a class="nav-link" href='#'>クソコードの墓場</a>
           </li>
         </ul>
       </div>

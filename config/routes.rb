@@ -16,7 +16,4 @@ Rails.application.routes.draw do
       get 'step1', to: 'level1#step1'
     end
   end
-  controller :records do
-    get '/score', to: 'records#index'
-  end
 end
