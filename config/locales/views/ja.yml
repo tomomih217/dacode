@@ -1,0 +1,11 @@
+ja:
+  defaults:
+  users:
+    new:
+      title: '新規ユーザー作成'
+  levels:
+    index:
+      title: 'ゲーム一覧'
+    show:
+      title: 'ゲーム選択'
+  records:
