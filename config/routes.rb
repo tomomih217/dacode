@@ -16,4 +16,5 @@ Rails.application.routes.draw do
       get 'step1', to: 'level1#step1'
     end
   end
+  resources :records, only: %i[index show]
 end
