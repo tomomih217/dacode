@@ -1,8 +1,21 @@
 ja:
   defaults:
+    signin: 'サインイン'
+    login: 'ログイン'
+    logout: 'ログアウト'
+    game_start: 'ゲームスタート'
+    ranking: 'ランキング'
+    grave: 'クソコードの墓場'
+    ok: 'はい'
+    cancel: 'キャンセル'
+    message:
+      forget_password: 'パスワードをお忘れの場合'
   users:
     new:
       title: '新規ユーザー作成'
+  user_sessions:
+    new:
+      title: 'ログイン'
   levels:
     index:
       title: 'ゲーム一覧'

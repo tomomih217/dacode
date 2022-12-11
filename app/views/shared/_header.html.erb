@@ -9,24 +9,24 @@
         <ul class="navbar-nav">
           <% if logged_in? %>
             <li class="nav-item">
-              <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
+              <%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'nav-link' %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to 'ログイン', login_path, class: 'nav-link active' %>
+              <%= link_to t('defaults.login'), login_path, class: 'nav-link active' %>
             </li>
           <% end %>
           <li class="nav-item">
-            <%= link_to 'ゲームスタート', levels_path, class: 'nav-link' %>
+            <%= link_to t('defaults.game_start'), levels_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ランキング</a>
+            <a class="nav-link" href="#"><%= t('defaults.ranking') %></a>
           </li>
           <li>
             <a class="nav-link" href='#'>クソコード破壊</a>
           </li>
           <li>
-            <a class="nav-link" href='#'>クソコードの墓場</a>
+            <a class="nav-link" href='#'><%= t('defaults.grave') %></a>
           </li>
         </ul>
       </div>
