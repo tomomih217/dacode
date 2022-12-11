@@ -1,5 +1,6 @@
 ja:
   defaults:
+    brand: 'クソコードは消えない'
     signin: 'サインイン'
     login: 'ログイン'
     logout: 'ログアウト'
@@ -10,6 +11,9 @@ ja:
     cancel: 'キャンセル'
     message:
       forget_password: 'パスワードをお忘れの場合'
+  static_pages:
+    top:
+      title: 'トップ'
   users:
     new:
       title: '新規ユーザー作成'

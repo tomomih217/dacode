@@ -9,4 +9,10 @@ module ApplicationHelper
     # クリアタイムをフォーマット化
     (Time.parse("1/1") + sec_r).strftime("#{day}日　%H:%M:%S:")
   end
+
+  # タイトルをタブに表示する
+  def set_title(title = '')
+    brand = t('defaults.brand')
+    title.empty? ? brand : title + ' | ' + brand
+  end
 end
