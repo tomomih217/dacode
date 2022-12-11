@@ -10,7 +10,12 @@ ja:
     ok: 'はい'
     cancel: 'キャンセル'
     message:
+      login: 'ログインしました'
+      not_login: 'ログインできませんでした'
+      logout: 'ログアウトしました'
       forget_password: 'パスワードをお忘れの場合'
+      created: '%{item}を作成しました'
+      not_created: '%{item}を作成できませんでした'
   static_pages:
     top:
       title: 'トップ'

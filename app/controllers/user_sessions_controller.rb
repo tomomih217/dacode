@@ -4,22 +4,23 @@ class UserSessionsController < ApplicationController
     def new; end
 
     def create
-        @user = login(params[:email], params[:password])
+      @user = login(params[:email], params[:password])
         if @user
-            redirect_back_or_to root_url
+          redirect_back_or_to root_url, success: t('defaults.message.login')
         else
-            render :new
+          flash.now[:danger] = t('defaults.message.not_login')
+          render :new
         end
     end
 
     def destroy
-        logout
-        redirect_to root_url
+      logout
+      redirect_to root_url, success: t('defaults.message.logout')
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:email, :password)
+      params.require(:user).permit(:email, :password)
     end
 end
