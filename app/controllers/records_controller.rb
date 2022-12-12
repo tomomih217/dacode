@@ -1,4 +1,10 @@
 class RecordsController < ApplicationController
+  def index
+  end
+
+  def show
+  end
+
   # タイム計測スタート
   def create
     record = current_user.records.build(level_id: params[:id])
@@ -8,9 +14,8 @@ class RecordsController < ApplicationController
 
   # タイム計測ストップ
   def update
-    record = current_user.records.find_by(level_id: params[:id])
-    params[:commit] == 'クリア' ? status = 2 : status = 1
-    record.update(status: status)
-    redirect_to root_path
+    record = current_user.records.find(params[:id])
+    record.change_status(params[:commit])
+    redirect_to root_path, success: t('defaults.message.finish_game')
   end
 end

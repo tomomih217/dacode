@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :levels, only: %i[index show] do
     member do
-      resources :records, only: %i[create update]
+      resources :records, only: %i[index show create update], sharrow: true
     end
     scope module: :levels do
       get 'introduction', to: 'level1#introduction'

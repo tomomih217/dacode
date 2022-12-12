@@ -16,6 +16,7 @@ ja:
       forget_password: 'パスワードをお忘れの場合'
       created: '%{item}を作成しました'
       not_created: '%{item}を作成できませんでした'
+      finish_game: 'ゲームを終了しました。お疲れ様でした。'
   static_pages:
     top:
       title: 'トップ'
