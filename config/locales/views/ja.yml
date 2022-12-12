@@ -31,4 +31,6 @@ ja:
       title: 'ゲーム一覧'
     show:
       title: 'ゲーム選択'
-  records:
+  scores:
+    index:
+      title: 'ランキング'

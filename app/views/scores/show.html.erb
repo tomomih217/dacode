@@ -1,0 +1,25 @@
+<% content_for(:title, t('.title')) %>
+<div class='container'>
+  <div class='row'>
+    <div class='my-5'>
+      <div class='text-center col-sm-8 offset-sm-2'>
+      <h3><%= t('.title') %></h3>
+      <table class='table table-borderless'>
+        <tbody>
+          <tr>
+            <td><%= Record.human_attribute_name(:id) %>
+            <td><%= @record.level_id %></td>
+          </tr>
+          <tr>
+            <td><%= Record.human_attribute_name(:status) %></td>
+            <td><%= @record.status %></td>
+          </tr>
+            <td><%= Record.human_attribute_name(:clear_time) %></td>
+            <td>クリアタイム</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>

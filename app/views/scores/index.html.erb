@@ -3,24 +3,20 @@
   <div class='row'>
     <div class='my-5'>
       <div class='text-center col-sm-8 offset-sm-2'>
+      <h3><%= t('.title') %></h3>
       <table class='table table-stripe'>
         <thead>
+          <th>Rank</th>
+          <th>UserName</th>
           <th>Level</th>
           <th>Result</th>
           <th>Time</th>
         </thead>
         <tbody>
-        <% @records.each do |record| %>
-          <tr>
-            <td><%= record.level.id %></td>
-            <td><%= record.status %></td>
-            <td>クリアタイム</td>
-          </tr>
-        <% end %>
+          <%= render partial: 'record', collection: @records %>
         </tbody>
       </table>
       </div>
     </div>
   </div>
 </div>
-            

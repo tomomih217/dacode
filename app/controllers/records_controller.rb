@@ -1,10 +1,4 @@
 class RecordsController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
   # タイム計測スタート
   def create
     record = current_user.records.build(level_id: params[:id])
