@@ -17,6 +17,7 @@ ja:
       created: '%{item}を作成しました'
       not_created: '%{item}を作成できませんでした'
       finish_game: 'ゲームを終了しました。お疲れ様でした。'
+      already_game: 'すでにゲームへの挑戦が終わっています'
   static_pages:
     top:
       title: 'トップ'
@@ -34,3 +35,6 @@ ja:
   scores:
     index:
       title: 'ランキング'
+      level1: 'Level1'
+      level2: 'Level2'
+      rank: '順位'

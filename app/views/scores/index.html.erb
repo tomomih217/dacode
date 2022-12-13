@@ -3,19 +3,19 @@
   <div class='row'>
     <div class='my-5'>
       <div class='text-center col-sm-8 offset-sm-2'>
-      <h3><%= t('.title') %></h3>
-      <table class='table table-stripe'>
-        <thead>
-          <th>Rank</th>
-          <th>UserName</th>
-          <th>Level</th>
-          <th>Result</th>
-          <th>Time</th>
-        </thead>
-        <tbody>
-          <%= render partial: 'record', collection: @records %>
-        </tbody>
-      </table>
+        <h3><%= t('.title') %></h3>
+        <!-- ranking-container -->
+        <div class='ranking-container mt-3'>
+          <h5><%= Record.human_attribute_name(:level) %>: <%= t('.level1') %></h5>
+          <%= render 'ranking', records: @lv1_records %>
+        </div>
+        <!-- /ranking-container -->
+        <!-- ranking-container -->
+        <div class='ranking-container mt-5'>
+          <h5><%= Record.human_attribute_name(:level) %>: <%= t('.level2') %></h5>
+          <%= render 'ranking', records: @lv2_records %>
+        </div>
+        <!-- /ranking-container -->
       </div>
     </div>
   </div>

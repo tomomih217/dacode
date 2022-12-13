@@ -3,22 +3,22 @@
   <div class='row'>
     <div class='my-5'>
       <div class='text-center col-sm-8 offset-sm-2'>
-      <h3><%= t('.title') %></h3>
-      <table class='table table-borderless'>
-        <tbody>
-          <tr>
-            <td><%= Record.human_attribute_name(:id) %>
-            <td><%= @record.level_id %></td>
-          </tr>
-          <tr>
-            <td><%= Record.human_attribute_name(:status) %></td>
-            <td><%= @record.status %></td>
-          </tr>
-            <td><%= Record.human_attribute_name(:clear_time) %></td>
-            <td>クリアタイム</td>
-          </tr>
-        </tbody>
-      </table>
+        <h3><%= t('.title') %></h3>
+        <div class='clear_time_container' style='position: relative; height: 140px;'>
+          <h1><%= clear_time(@record) %></h1>
+          <%= image_tag 'score_image.png', size: '300x100', style: 'position: absolute; left: 50%; transform: translate(-50%, -35%);' %>
+        </div>
+        <div class='result-container'>
+          <div class='result-item'>
+            <%= Record.human_attribute_name(:level) %>
+            <h3><%= set_level(@record) %></h3>
+          </div>
+          <hr>
+          <div class='result-item'>
+            <%= Record.human_attribute_name(:user) %>
+            <h3><%= @record.user.username %></h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>

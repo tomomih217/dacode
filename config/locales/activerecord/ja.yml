@@ -13,6 +13,9 @@ ja:
       level:
         name: 'ゲーム難易度'
       record:
+        user: 'ユーザー'
+        level: '難易度'
+        result: '結果'
         clear_time: 'クリアタイム'
   attributes:
     created_at: '作成日'
