@@ -7,6 +7,7 @@ class LevelsController < ApplicationController
 
   # ゲーム開始画面への遷移
   def show
+    require_login unless params[:id] == '1'
     @level = Level.find(params[:id])
   end
 end
