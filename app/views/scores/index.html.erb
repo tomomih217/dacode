@@ -1,0 +1,26 @@
+<% content_for(:title, t('.title')) %>
+<div class='container'>
+  <div class='row'>
+    <div class='my-5'>
+      <div class='text-center col-sm-8 offset-sm-2'>
+        <h3>
+          <span><%= image_tag 'ranking_image.png', size: '30x25' %> </span>
+          <%= t('.title') %>
+          <span> <%= image_tag 'ranking_image.png', size: '30x25' %></span>
+        </h3>
+        <!-- ranking-container -->
+        <div class='ranking-container mt-3'>
+          <h5><%= Record.human_attribute_name(:level) %>: <%= t('.level1') %></h5>
+          <%= render 'ranking', records: @lv1_records %>
+        </div>
+        <!-- /ranking-container -->
+        <!-- ranking-container -->
+        <div class='ranking-container mt-5'>
+          <h5><%= Record.human_attribute_name(:level) %>: <%= t('.level2') %></h5>
+          <%= render 'ranking', records: @lv2_records %>
+        </div>
+        <!-- /ranking-container -->
+      </div>
+    </div>
+  </div>
+</div>

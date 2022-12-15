@@ -1,0 +1,40 @@
+ja:
+  defaults:
+    brand: 'クソコードは消えない'
+    signin: 'サインイン'
+    login: 'ログイン'
+    logout: 'ログアウト'
+    game_start: 'ゲームスタート'
+    ranking: 'ランキング'
+    grave: 'クソコードの墓場'
+    ok: 'はい'
+    cancel: 'キャンセル'
+    message:
+      login: 'ログインしました'
+      not_login: 'ログインできませんでした'
+      logout: 'ログアウトしました'
+      forget_password: 'パスワードをお忘れの場合'
+      created: '%{item}を作成しました'
+      not_created: '%{item}を作成できませんでした'
+      finish_game: 'ゲームを終了しました。お疲れ様でした。'
+      already_game: 'すでにゲームへの挑戦が終わっています'
+  static_pages:
+    top:
+      title: 'トップ'
+  users:
+    new:
+      title: '新規ユーザー作成'
+  user_sessions:
+    new:
+      title: 'ログイン'
+  levels:
+    index:
+      title: 'ゲーム一覧'
+    show:
+      title: 'ゲーム選択'
+  scores:
+    index:
+      title: 'ランキング'
+      level1: 'Level1'
+      level2: 'Level2'
+      rank: '順位'

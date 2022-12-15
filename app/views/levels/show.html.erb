@@ -1,0 +1,15 @@
+<% content_for(:title, t('.title')) %>
+<div class='container'>
+  <div class='row'>
+    <div class='my-5'>
+      <div class='text-center col-sm-10 offset-sm-1'>
+        <p>このレベルに挑戦しますか？</p>
+        <h3 class='my-5'><%= @level.name %></h3>
+        <div class='mt-3'>
+          <%= link_to t('defaults.ok'), records_path, method: :post, class: 'btn bt-lg btn-success' %>
+          <%= link_to t('defaults.cancel'), levels_path, class: 'btn btn-sm btn-outline-secondary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

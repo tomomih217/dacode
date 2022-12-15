@@ -1,0 +1,35 @@
+<header class='sticky-top'>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container-fluid">
+      <%= link_to 'クソコードは消えない', root_path, class: 'navbar-brand' %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <% if logged_in? %>
+            <li class="nav-item">
+              <%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to t('defaults.login'), login_path, class: 'nav-link active' %>
+            </li>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to t('defaults.game_start'), levels_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('defaults.ranking'), ranking_path, class: 'nav-link' %>
+          </li>
+          <li>
+            <a class="nav-link" href='#'>クソコード破壊</a>
+          </li>
+          <li>
+            <a class="nav-link" href='#'><%= t('defaults.grave') %></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
