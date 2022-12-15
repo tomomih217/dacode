@@ -21,11 +21,11 @@ module DisableToVanishDacode
       g.helper false # helper生成しない
       g.test_framework false # test生成しない
       g.skip_routes true # ルーティング生成しない
-   end
+    end
 
-   # 国際化（デフォルトの言語を日本語にする）
-   config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
-   config.i18n.default_locale = :ja
-   config.i18n.available_locales = %i[ja en]
+    # 国際化（デフォルトの言語を日本語にする）
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
+    config.i18n.default_locale = :ja
+    config.i18n.available_locales = %i[ja en]
   end
 end

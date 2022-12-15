@@ -2,7 +2,7 @@ module ApplicationHelper
   # タイトルをタブに表示する
   def set_title(title = '')
     brand = t('defaults.brand')
-    title.empty? ? brand : title + ' | ' + brand
+    title.empty? ? brand : "#{title} | #{brand}"
   end
 
   # recordのcreated_atとupdated_atの時間からクリアタイムを計算して返す
@@ -14,11 +14,11 @@ module ApplicationHelper
     day, sec_r = clear_time_second.divmod(86400) # １日は86400秒
     # クリアタイムをフォーマット化
     clear_time = (Time.parse("1/1") + sec_r).strftime("%H:%M:%S")
-    day.zero? ? clear_time : day + '日間 ' + clear_time
+    day.zero? ? clear_time : "#{day} 日間 #{clear_time}"
   end
 
   # 難易度を表示する
-  def set_level(record)
-    "Level" + record.level_id.to_s
+  def label_level(record)
+    "Level #{record.level_id}"
   end
 end
