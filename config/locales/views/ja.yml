@@ -6,6 +6,7 @@ ja:
     logout: 'ログアウト'
     game_start: 'ゲームスタート'
     ranking: 'ランキング'
+    vanish: 'クソコード破壊'
     grave: 'クソコードの墓場'
     ok: 'はい'
     cancel: 'キャンセル'
@@ -38,3 +39,5 @@ ja:
       level1: 'Level1'
       level2: 'Level2'
       rank: '順位'
+    myscore:
+      title: '%{user}の成績'

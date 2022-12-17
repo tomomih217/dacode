@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   end
   resources :scores, only: %i[show]
   get '/ranking', to: 'scores#index'
+  get '/myscore', to: 'scores#myscore'
 end

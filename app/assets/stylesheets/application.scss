@@ -1,1 +1,20 @@
 @import "bootstrap";
+
+.btn-success {
+  --bs-btn-bg: #3C3BC3;
+  --bs-btn-hover-bg: #060C9A;
+}
+
+#header-bg {
+  background-color: #060C9A;
+}
+
+.top-bg {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(90deg, rgba(172, 172, 172, 1), rgba(233, 233, 233, 1));
+}
+
+footer p {
+  color: #060C9A;
+}
