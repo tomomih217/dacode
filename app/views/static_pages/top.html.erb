@@ -1,17 +1,19 @@
-<div class='container'>
-  <div class='row'>
-    <div class='my-5'>
-      <div class='text-center col-sm-10 offset-sm-1'>
-        <p>タイポ、ロジックミス。<br>あらゆるエンジニアたちが頭を悩ませてきたクソコード。</p>
-        <p>さあ、今こそ駆逐する時。</p>
-        <h3>この謎を解き明かし、クソコードを破壊せよ！</h3>
+<div class='top-bg'>
+  <div class='container'>
+    <div class='row'>
+      <!-- top-img-container -->
+      <div class='top-img-container pt-5 col-lg-8 offset-lg-2 col-md-10 offset-md-1'>
+        <div class='top-monitor'>
+          <%= image_tag 'top-monitor.png', width: '100%' %>
+          <div class='top-text-container'>
+            <p>タイポ、ロジックミス。<br>あらゆるエンジニアたちが頭を悩ませてきたクソコード。</p>
+            <p>さあ、今こそ駆逐する時。</p>
+            <p><span>この謎を解き明かし、</span><br><span>クソコードを破壊せよ！</span></p>
+            <%= link_to 'Game Start', levels_path, class: 'btn btn-lg btn-success' %>
+          </div>
+        </div>
       </div>
-      <div class='text-center'>
-        <%= image_tag 'top_image.png', size: '300x200' %>
-      </div>
-      <div class='text-center mt-3'>
-        <%= link_to 'Game Start', levels_path, class: 'btn btn-lg btn-success' %>
-      </div>
+      <!-- /top-img-container -->
     </div>
   </div>
 </div>
