@@ -20,13 +20,13 @@
             <% end %>
           </li>
           <li class="nav-item me-3">
-            <%= link_to '#', class: 'text-decoration-none' do %>
+            <%= link_to new_kusocode_path, class: 'text-decoration-none' do %>
               <%= image_tag 'icon_vanish.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
               <span class='text-light', style='font-size: 8px;'><%= t('defaults.vanish') %></span>
             <% end %>
           </li>
           <li>
-            <%= link_to '#', class: 'text-decoration-none' do %>
+            <%= link_to kusocodes_path, class: 'text-decoration-none' do %>
               <%= image_tag 'icon_grave.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
               <span class='text-light', style='font-size: 8px;'><%= t('defaults.grave') %></span>
             <% end %>

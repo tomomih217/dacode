@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :scores, only: %i[show]
   get '/ranking', to: 'scores#index'
   get '/myscore', to: 'scores#myscore'
+  resources :kusocodes, only: %i[index new create destroy]
 end
