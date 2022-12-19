@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_12_19_020823) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "level_image", null: false
+    t.string "level_image", default: "level_noimg.jpg", null: false
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
