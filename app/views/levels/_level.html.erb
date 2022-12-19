@@ -1,8 +1,8 @@
-<h3 class='mb-4'><%= link_to level.name, level_path(level) %></h3>
-
-<div class="card" style="width: 18rem;">
-  <%= image_tag "level1_img.jpg", class: "card-img-top" %>
-  <div class="card-body">
-    <h5 class="card-title"><%= level.name %></h5>
+<%= link_to level_path(level) do %>
+  <div class="card mb-3" style="width: 18rem;">
+    <%= image_tag level.level_image, class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= level.name %></h5>
+    </div>
   </div>
-</div>
+<% end %>
