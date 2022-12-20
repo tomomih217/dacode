@@ -9,7 +9,7 @@
           <div class='selected-vanish'>
           </div>
           <%= form_with model: @kusocode, local: true do |f| %>
-            <%= f.text_area :code, rows: 8, class: 'form-control', placeholder: 'コードを入力' %>
+            <%= f.text_area :code, rows: 8, class: 'form-control', placeholder: 'コードを入力', id: 'js-inputForm', onkeyup: 'inputCheck();' %>
             <div class='btn-area d-flex justify-content-around my-3'>
               <%= f.submit '破壊', class: 'btn btn-lg btn-danger rounded-pill px-4' %>
               <%= f.submit '投稿', class: 'btn btn-lg btn-success rounded-pill px-4' %>
@@ -18,16 +18,12 @@
               <%= f.text_field :description, class: 'form-control', placeholder: '説明文　例）全てを０にして返すキングオブクソコード' %>
             </div>
           <% end %>
-          <button id='js-explode-btn'>破壊</button>
+          <button id='js-explode-btn' onclick='fireBomb();'>破壊</button>
         </div>
       </div>
       <div class='display-container'>
         <div class='black-code-area' id='js-explode'>
-          <p>
-            def get_name(name)<br>
-              self.name = name<br>
-            end
-          </p>
+          <p id='js-check'></p>
         </div>
       </div>
       <!-- /vanish-container -->
