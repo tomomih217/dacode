@@ -4,6 +4,7 @@ class KusocodesController < ApplicationController
   end
 
   def new
+    @kusocode = Kusocode.new
   end
 
   def create

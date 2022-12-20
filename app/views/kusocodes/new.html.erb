@@ -1,2 +1,36 @@
-<h1>Kusocodes#new</h1>
-<p>Find me in app/views/kusocodes/new.html.erb</p>
+<% content_for(:title, t('.title')) %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 mt-5'>
+      <h3 class='text-center'><%= t('.title') %></h3>
+      <!-- vanish-container -->
+      <div class='vanish-container'>
+        <div class='input-kusocode-container mb-3'>
+          <div class='selected-vanish'>
+          </div>
+          <%= form_with model: @kusocode, local: true do |f| %>
+            <%= f.text_area :code, rows: 8, class: 'form-control', placeholder: 'コードを入力' %>
+            <div class='btn-area d-flex justify-content-around my-3'>
+              <%= f.submit '破壊', class: 'btn btn-lg btn-danger rounded-pill px-4' %>
+              <%= f.submit '投稿', class: 'btn btn-lg btn-success rounded-pill px-4' %>
+            </div>
+            <div class='descript-area'>
+              <%= f.text_field :description, class: 'form-control', placeholder: '説明文　例）全てを０にして返すキングオブクソコード' %>
+            </div>
+          <% end %>
+          <button id='js-explode-btn'>破壊</button>
+        </div>
+      </div>
+      <div class='display-container'>
+        <div class='black-code-area' id='js-explode'>
+          <p>
+            def get_name(name)<br>
+              self.name = name<br>
+            end
+          </p>
+        </div>
+      </div>
+      <!-- /vanish-container -->
+    </div>
+  </div>
+</div>
