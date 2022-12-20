@@ -118,5 +118,11 @@ function sleep(waitSec, callbackFunc) {
 function fireBomb() {
   var target = document.getElementById("js-check");
   target.classList.add('bkht');
-  sleep(3, sparcle);
+  sleep(3, function () {
+    sparcle();
+    sleep(1, function () {
+      document.getElementById("js-inputForm").value = '';
+      target.innerHTML = '';
+    });
+  });
 }
