@@ -60,10 +60,6 @@ footer p {
 }
 
 /* クソコード投稿画面 */
-.descript-area {
-  display: none;
-}
-
 .black-code-area {
   background-color: #000;
   width: 100%;
@@ -78,6 +74,10 @@ footer p {
 }
 
 .btn-area input:disabled {
+  opacity: 0.5;
+}
+
+.btn-area button:disabled {
   opacity: 0.5;
 }
 
