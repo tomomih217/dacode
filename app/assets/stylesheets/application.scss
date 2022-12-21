@@ -77,6 +77,10 @@ footer p {
   white-space: pre;
 }
 
+.btn-area input:disabled {
+  opacity: 0.5;
+}
+
 /* 爆発効果 */
 @import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
 
@@ -132,12 +136,6 @@ $red: #7a2c1f;
   animation: explode 333ms;
   
   box-shadow: 0 0 0 0 $yellow;
-}
-
-@keyframes flyword {
-  0% {
-
-  }
 }
 
 @keyframes bkhta{

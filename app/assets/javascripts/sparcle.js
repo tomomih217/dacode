@@ -122,7 +122,9 @@ function fireBomb() {
     sparcle();
     sleep(1, function () {
       document.getElementById("js-inputForm").value = '';
+      target.classList.remove('bkht');
       target.innerHTML = '';
+      document.getElementById("js-kusocode-submit-status").setAttribute("disabled", true);
     });
   });
 }
