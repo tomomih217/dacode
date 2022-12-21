@@ -21,4 +21,9 @@ module ApplicationHelper
   def label_level(record)
     "Level #{record.level_id}"
   end
+
+  # コードに含まれている改行コードを消す
+  def remove_br(kusocode)
+    kusocode.code.gsub(/[\r\n]/, '')
+  end
 end

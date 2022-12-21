@@ -175,3 +175,33 @@ $red: #7a2c1f;
     transform: rotate(45deg) scale(0.25) translateZ(0);
   }
 }
+
+/* クソコード閲覧 */
+.kusocode-view-container div {
+  white-space: pre;
+  line-height: 0.7em;
+}
+
+.kusocode-container {
+  background-color: white;
+  width: 100%;
+  padding-top: 30px;
+  border-radius: 35% 35% 0 0;
+}
+
+.date-align {
+  text-align: right;
+}
+
+.black-code-view {
+  background-color: #000;
+  color: white;
+}
+
+.flower-area img {
+  display: inline-block;
+}
+
+.flower-area span {
+  display: inline-block;
+}

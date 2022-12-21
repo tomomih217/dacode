@@ -1,6 +1,7 @@
 class KusocodesController < ApplicationController
   skip_before_action :require_login, only: %i[index new]
   def index
+    @kusocodes = Kusocode.all.includes(:user).order(created_at: :desc)
   end
 
   def new
