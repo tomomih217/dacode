@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :records, dependent: :destroy
   has_many :kusocodes, dependent: :destroy
+  has_many :flowers, dependent: :destroy
+  has_many :flowered_kusocodes, through: :flowers, source: :kusocode
 
   validates :username, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
@@ -11,4 +13,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
+  def flowered(kusocode)
+    flowered_kusocodes << kusocode
+  end
 end
