@@ -1,0 +1,9 @@
+<% if current_user.flowered?(kusocode) %>
+  <%= link_to flower_path(current_user.flowers.find_by(kusocode_id: kusocode.id)) do %>
+    <%= image_tag 'grave-black-flower.png', size: '20x20' %>
+  <% end %>
+<% else %>
+  <%= link_to kusocode_flowers_path(kusocode) do %>
+    <%= image_tag 'grave-white-flower.png', size: '20x20' %>
+  <% end %>
+<% end %>

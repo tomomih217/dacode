@@ -7,5 +7,9 @@ class FlowersController < ApplicationController
   end
   
   def destroy
+    kusocode = Flower.find(params[:id]).kusocode
+    if current_user.unflowered(kusocode)
+      redirect_back fallback_location: kusocodes_path, success: 'unflowered.'
+    end
   end
 end

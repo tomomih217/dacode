@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   get '/ranking', to: 'scores#index'
   get '/myscore', to: 'scores#myscore'
   resources :kusocodes, only: %i[index new create destroy] do
-    resources :flowers, only: %i[create destroy]
+    resources :flowers, only: %i[create destroy], shallow: true
   end
 end

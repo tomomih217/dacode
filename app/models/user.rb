@@ -13,7 +13,18 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
+  # いいね追加機能
   def flowered(kusocode)
     flowered_kusocodes << kusocode
+  end
+
+  # いいね削除機能
+  def unflowered(kusocode)
+    flowered_kusocodes.destroy(kusocode)
+  end
+
+  # いいね済かをtrue/falseで返す
+  def flowered?(kusocode)
+    flowered_kusocodes.include?(kusocode)
   end
 end
