@@ -17,6 +17,7 @@ ja:
       forget_password: 'パスワードをお忘れの場合'
       created: '%{item}を作成しました'
       not_created: '%{item}を作成できませんでした'
+      deleted: '%{item}を削除しました'
       finish_game: 'ゲームを終了しました。お疲れ様でした。'
       already_game: 'すでにゲームへの挑戦が終わっています'
   static_pages:
@@ -44,6 +45,7 @@ ja:
   kusocodes:
     index:
       title: 'クソコード閲覧'
+      delete: '削除'
     new:
       title: 'クソコード破壊'
       vanish_btn: '破壊'

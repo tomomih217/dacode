@@ -22,6 +22,9 @@
                   <%= render 'flower', kusocode: kusocode %>
                   <%= render 'flower_count', kusocode: kusocode %>
                 </div>
+                <% if current_user.own?(kusocode) %>
+                  <div class='text-end'><%= link_to t('.delete'), kusocode_path(kusocode), method: :delete %></div>
+                <% end %>
               </div>
             </div>
             <hr>

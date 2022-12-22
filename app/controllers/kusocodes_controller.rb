@@ -19,6 +19,9 @@ class KusocodesController < ApplicationController
   end
 
   def destroy
+    kusocode = current_user.kusocodes.find(params[:id])
+    kusocode.destroy!
+    redirect_to kusocodes_path, success: t('defaults.message.deleted', item: Kusocode.model_name.human)
   end
 
   private

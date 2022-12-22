@@ -25,7 +25,7 @@ module ApplicationHelper
   # 正答率を表示する
   def percentage_of_correct_answer(level)
     percentage = level.records.where(status: 'cleared').count.to_f / level.records.count.to_f * 100
-    "#{percentage.floor}%"
+    percentage.nan? ? "0%" : "#{percentage.floor}%"
   end
 
   # コードに含まれている改行コードを消す

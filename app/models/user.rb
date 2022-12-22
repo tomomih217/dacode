@@ -13,6 +13,11 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
+  # ユーザーに紐付いているobjectかを判定
+  def own?(object)
+    id == object.user_id
+  end
+
   # いいね追加機能
   def flowered(kusocode)
     flowered_kusocodes << kusocode
