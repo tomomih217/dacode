@@ -1,9 +1,7 @@
-<% if current_user.flowered?(kusocode) %>
-  <%= link_to flower_path(current_user.flowers.find_by(kusocode_id: kusocode.id)) do %>
-    <%= image_tag 'grave-black-flower.png', size: '20x20' %>
+<div class='flower-icon'>
+  <% if current_user.flowered?(kusocode) %>
+    <%= render 'unflowered', kusocode: kusocode %>
+  <% else %>
+    <%= render 'flowered', kusocode: kusocode %>
   <% end %>
-<% else %>
-  <%= link_to kusocode_flowers_path(kusocode) do %>
-    <%= image_tag 'grave-white-flower.png', size: '20x20' %>
-  <% end %>
-<% end %>
+</div>

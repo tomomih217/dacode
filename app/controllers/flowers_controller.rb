@@ -1,15 +1,11 @@
 class FlowersController < ApplicationController
   def create
-    kusocode = Kusocode.find(params[:kusocode_id])
-    if current_user.flowered(kusocode)
-      redirect_back fallback_location: kusocodes_path, success: 'flowered successfully.'
-    end
+    @kusocode = Kusocode.find(params[:kusocode_id])
+    current_user.flowered(@kusocode)
   end
   
   def destroy
-    kusocode = Flower.find(params[:id]).kusocode
-    if current_user.unflowered(kusocode)
-      redirect_back fallback_location: kusocodes_path, success: 'unflowered.'
-    end
+    @kusocode = Flower.find(params[:id]).kusocode
+    current_user.unflowered(@kusocode)
   end
 end
