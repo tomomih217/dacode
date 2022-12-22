@@ -22,6 +22,12 @@ module ApplicationHelper
     "Level #{record.level_id}"
   end
 
+  # 正答率を表示する
+  def percentage_of_correct_answer(level)
+    percentage = level.records.where(status: 'cleared').count.to_f / level.records.count.to_f * 100
+    "#{percentage.floor}%"
+  end
+
   # コードに含まれている改行コードを消す
   def remove_br(kusocode)
     kusocode.code.gsub(/[\r\n]/, '')

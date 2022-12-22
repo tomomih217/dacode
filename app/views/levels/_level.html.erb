@@ -1,8 +1,12 @@
-<%= link_to level_path(level) do %>
-  <div class="card mb-3" style="width: 18rem;">
+<%= link_to level_path(level), class: 'text-decoration-none text-dark' do %>
+  <div class="card mb-3 text-center" style="width: 18rem;">
     <%= image_tag level.level_image, class: "card-img-top" %>
     <div class="card-body">
       <h5 class="card-title"><%= level.name %></h5>
+      <p class="card-text">
+        現在　<%= level.records.where(status: 'cleared').count %>人クリア/<%= level.records.count %>人中<br>
+        <%= percentage_of_correct_answer(level) %>
+      </p>
     </div>
   </div>
 <% end %>
