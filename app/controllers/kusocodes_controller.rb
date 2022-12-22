@@ -11,9 +11,9 @@ class KusocodesController < ApplicationController
   def create
     @kusocode = current_user.kusocodes.build(kusocode_params)
     if @kusocode.save
-      redirect_to kusocodes_path, success: 'successfully.'
+      redirect_to kusocodes_path, success: t('defaults.message.created', item: Kusocode.model_name.human)
     else
-      flash.now[:danger] = 'failed.'
+      flash.now[:danger] = t('defaults.message.not_created', item: Kusocode.model_name.human)
       render :new
     end
   end

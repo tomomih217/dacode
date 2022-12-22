@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       level: 'レベル'
       record: '記録'
+      kusocode: 'クソコード'
     attributes:
       user:
         username: 'ユーザー名'
@@ -17,6 +18,9 @@ ja:
         level: '難易度'
         result: '結果'
         clear_time: 'クリアタイム'
+      kusocode:
+        code: 'コード'
+        description: '説明'
   attributes:
     created_at: '作成日'
     updated_at: '更新日'
