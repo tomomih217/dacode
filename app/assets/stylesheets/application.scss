@@ -39,6 +39,28 @@ $gray-dark: #546E7A;
   background-color: #060C9A;
 }
 
+.nav-item:hover {
+  background-color: #090b5d;
+}
+
+.nav-link-text {
+  font-size: 8px;
+}
+
+.dropdown-menu {
+  background-color: #060C9A;
+}
+
+.dropdown-menu a {
+  color: white;
+  --bs-dropdown-link-color: #fff;
+  --bs-dropdown-link-hover-color: #fff;
+  --bs-dropdown-link-hover-bg: #090b5d;
+  --bs-dropdown-link-active-color: #fff;
+  --bs-dropdown-link-active-bg: #090b5d;
+  --bs-dropdown-link-disabled-color: #adb5bd;
+}
+
 /* フッター */
 footer p {
   color: #060C9A;

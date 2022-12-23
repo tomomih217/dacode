@@ -1,8 +1,7 @@
 class Levels::Level1Controller < ApplicationController
   before_action :set_level
 
-  def introduction
-  end
+  def introduction ;end
 
   def step1
     set_record
