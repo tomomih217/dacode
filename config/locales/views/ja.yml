@@ -35,6 +35,9 @@ ja:
       title: 'ゲーム一覧'
     show:
       title: 'ゲーム選択'
+    level1:
+      introduction:
+        title: 'イントロダクション'
   scores:
     index:
       title: 'ランキング'

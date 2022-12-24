@@ -12,8 +12,10 @@ Rails.application.routes.draw do
       resources :records, only: %i[create update]
     end
     scope module: :levels do
-      get 'introduction', to: 'level1#introduction'
-      get 'step1', to: 'level1#step1'
+      controller :level1 do
+        get 'introduction'
+        get 'step1'
+      end
     end
   end
   resources :scores, only: %i[show]
