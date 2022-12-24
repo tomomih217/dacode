@@ -1,6 +1,6 @@
 class Levels::Level1Controller < ApplicationController
   before_action :set_level
-
+  skip_before_action :require_login
   def introduction ;end
 
   def step1

@@ -34,9 +34,25 @@ $gray-dark: #546E7A;
   margin-bottom: 0;
 }
 
+.black-code-area {
+  background-color: #000;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.black-code-area p {
+  color: white;
+  white-space: pre;
+}
+
 /* ヘッダー */
 #header-bg {
   background-color: #060C9A;
+}
+
+.navbar-nav {
+  --bs-nav-link-padding-y: 1rem;
 }
 
 .nav-item:hover {
@@ -95,17 +111,8 @@ footer p {
 }
 
 /* クソコード投稿画面 */
-.black-code-area {
-  background-color: #000;
-  width: 100%;
+.black-code-for-kusocode-new {
   height: 200px;
-  padding: 10px;
-  overflow: hidden;
-}
-
-.black-code-area p {
-  color: white;
-  white-space: pre;
 }
 
 .btn-area input:disabled {
@@ -228,8 +235,11 @@ $red: #7a2c1f;
   text-align: right;
 }
 
-.black-code-view {
-  background-color: #000;
+.black-code-for-kusocode-index {
+  padding: 15px;
+}
+
+.black-code-for-kusocode-index div {
   color: white;
 }
 
@@ -240,4 +250,14 @@ $red: #7a2c1f;
 .flower-icon {
   display: flex;
   align-items: center;
+}
+
+/* level1 */
+.black-code-for-level1-introduction {
+  margin: auto;
+  width: 60%;
+}
+
+.black-code-for-level1-introduction p {
+  margin: 0;
 }

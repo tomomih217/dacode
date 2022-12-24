@@ -6,26 +6,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto mt-2">
-          <li class="nav-item me-3 mb-2">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item me-3">
             <%= link_to levels_path, class: 'text-decoration-none' do %>
               <%= image_tag 'icon_game.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
               <div class='nav-link-text text-light text-center mt-1'><%= t('defaults.game_start') %></div>
             <% end %>
           </li>
-          <li class="nav-item me-3 mb-2">
+          <li class="nav-item me-3">
             <%= link_to ranking_path, class: 'text-decoration-none' do %>
               <%= image_tag 'icon_ranking.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
               <div class='nav-link-text text-light text-center mt-1'><%= t('defaults.ranking') %></div>
             <% end %>
           </li>
-          <li class="nav-item me-3 mb-2">
+          <li class="nav-item me-3">
             <%= link_to new_kusocode_path, class: 'text-decoration-none' do %>
               <%= image_tag 'icon_vanish.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
               <div class='nav-link-text text-light text-center mt-1'><%= t('defaults.vanish') %></div>
             <% end %>
           </li>
-          <li class="nav-item me-3 mb-2">
+          <li class="nav-item me-3">
             <%= link_to kusocodes_path, class: 'text-decoration-none' do %>
               <%= image_tag 'icon_grave.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
               <div class='nav-link-text text-light text-center mt-1 mb-2'><%= t('defaults.grave') %></div>
@@ -43,7 +43,7 @@
               </ul>
             </div>
           <% else %>
-            <li class="nav-item me-3 mb-2">
+            <li class="nav-item">
               <%= link_to t('defaults.login'), login_path, class: 'nav-link text-center active' %>
             </li>
           <% end %>

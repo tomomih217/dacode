@@ -5,12 +5,16 @@
       <div><%= l kusocode.created_at, format: :long %></div>
     </div>
     <div><%= kusocode.description %></div>
-    <div class='black-code-view p-3'><%= simple_format(h(kusocode.code), {}, sanitize: false, wrapper_tag: 'div') %></div>
+    <div class='black-code-area black-code-for-kusocode-index'><%= simple_format(h(kusocode.code), {}, sanitize: false, wrapper_tag: 'div') %></div>
     <div class='d-flex align-items-end'>
-      <%= render 'flower', kusocode: kusocode %>
+      <% if logged_in? %>
+        <%= render 'flower', kusocode: kusocode %>
+      <% else %>
+        <%= image_tag 'grave-white-flower.png', size: '20x20' %>
+      <% end %>
       <%= render 'flower_count', kusocode: kusocode %>
     </div>
-    <% if current_user.own?(kusocode) %>
+    <% if logged_in? && current_user.own?(kusocode) %>
       <div class='text-end'><%= link_to t('defaults.delete'), kusocode_path(kusocode), method: :delete %></div>
     <% end %>
   </div>
