@@ -10,11 +10,11 @@ RSpec.describe User, type: :model do
         is_expected.to eq false;
       end
       it 'usernameが20文字の場合、登録できること' do
-        user.username = '01234567890123456789'
+        user.username = '0' * 20
         is_expected.to eq true;
       end
       it 'usernameが21文字の場合、登録できないこと' do
-        user.username = '012345678901234567890'
+        user.username = '0' * 21
         is_expected.to eq false;
       end
     end
@@ -55,20 +55,20 @@ RSpec.describe User, type: :model do
   describe 'アソシエーションテスト' do
     context 'recordモデルとの関係' do
       it 'recordと1:Nの関係であること' do
-        expect(User.reflect_on_association(:records).macro).to eq :has_many
+        should have_many(:records)
       end
     end
     context 'kusocodeモデルとの関係' do
       it 'kusocodeと1:Nの関係であること' do
-        expect(User.reflect_on_association(:kusocodes).macro).to eq :has_many
+        should have_many(:kusocodes)
       end
     end
     context 'flowerモデルとの関係' do
       it 'flowerと1:Nの関係であること' do
-        expect(User.reflect_on_association(:flowers).macro).to eq :has_many
+        should have_many(:flowers)
       end
       it 'flowerとkusocodeとの関係がN:1:Nであること' do
-        expect(User.reflect_on_association(:flowered_kusocodes).macro).to eq :has_many
+        should have_many(:flowered_kusocodes)
       end
     end
   end

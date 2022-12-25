@@ -262,6 +262,8 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -330,6 +332,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers (~> 5.0)
   sorcery (~> 0.14.0)
   spring
   spring-watcher-listen (~> 2.0.0)
