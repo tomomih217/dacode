@@ -28,6 +28,20 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
 && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
 && apt-get update -qq \
 && apt-get install -y build-essential nodejs yarn
+# 以下、MySQL8系のライブラリをLinux上にインストールする手順
+RUN apt update && apt install -y lsb-release \ 
+&& apt remove -y libmariadb-dev-compat libmariadb-dev
+RUN wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-common_8.0.18-1debian10_amd64.deb \
+    https://dev.mysql.com/get/Downloads/MySQL-8.0/libmysqlclient21_8.0.18-1debian10_amd64.deb \
+    https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client-core_8.0.18-1debian10_amd64.deb \
+    https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client_8.0.18-1debian10_amd64.deb \
+    https://dev.mysql.com/get/Downloads/MySQL-8.0/libmysqlclient-dev_8.0.18-1debian10_amd64.deb
+RUN dpkg -i mysql-common_8.0.18-1debian10_amd64.deb \
+    libmysqlclient21_8.0.18-1debian10_amd64.deb \
+    mysql-community-client-core_8.0.18-1debian10_amd64.deb \
+    mysql-community-client_8.0.18-1debian10_amd64.deb \
+    libmysqlclient-dev_8.0.18-1debian10_amd64.deb
+# ここまで。
 
 RUN gem install bundler:$BUNDLER_VERSION
 
