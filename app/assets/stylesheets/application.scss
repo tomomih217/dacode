@@ -1,1 +1,263 @@
 @import "bootstrap";
+
+/* デフォルト */
+$headings-line-height: 1.5;
+$line-height-base: 1.65;
+$gray-dark: #546E7A;
+
+.body {
+  letter-spacing: .1em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.btn-success {
+  --bs-btn-bg: #3C3BC3;
+  --bs-btn-hover-bg: #060C9A;
+  --bs-btn-active-bg: #060C9A;
+  --bs-btn-disabled-bg: #060C9A;
+}
+
+.btn-danger {
+  --bs-btn-bg: #F30808;
+  --bs-btn-hover-bg: #BA3A3A;
+  --bs-btn-active-bg: #BA3A3A;
+  --bs-btn-disabled-bg: #BA3A3A;
+}
+
+.bg {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(0deg, rgba(233, 233, 233, 1), rgba(172, 172, 172, 1));
+}
+
+.alert ul {
+  margin-bottom: 0;
+}
+
+.black-code-area {
+  background-color: #000;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.black-code-area p {
+  color: white;
+  white-space: pre;
+}
+
+/* ヘッダー */
+#header-bg {
+  background-color: #060C9A;
+}
+
+.navbar-nav {
+  --bs-nav-link-padding-y: 1rem;
+}
+
+.nav-item:hover {
+  background-color: #090b5d;
+}
+
+.nav-link-text {
+  font-size: 8px;
+}
+
+.dropdown-menu {
+  background-color: #060C9A;
+}
+
+.dropdown-menu a {
+  color: white;
+  --bs-dropdown-link-color: #fff;
+  --bs-dropdown-link-hover-color: #fff;
+  --bs-dropdown-link-hover-bg: #090b5d;
+  --bs-dropdown-link-active-color: #fff;
+  --bs-dropdown-link-active-bg: #090b5d;
+  --bs-dropdown-link-disabled-color: #adb5bd;
+}
+
+/* フッター */
+footer p {
+  color: #060C9A;
+}
+
+/* トップ(root_path) */
+.top-monitor {
+  position: relative;
+}
+
+.top-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 80%;
+  text-align: center;
+}
+
+.top-text-container p {
+  font-size: 0.8em;
+}
+
+.top-text-container span {
+  font-size: 1.8em;
+}
+
+/* ゲーム選択画面(levels_path) */
+.card-title {
+  text-decoration: none;
+  text-align: center;
+}
+
+/* クソコード投稿画面 */
+.black-code-for-kusocode-new {
+  height: 200px;
+}
+
+.btn-area input:disabled {
+  opacity: 0.5;
+}
+
+.btn-area button:disabled {
+  opacity: 0.5;
+}
+
+/* 爆発効果 */
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+$white: #e4f9fa;
+$yellow: #fde655;
+$orange: #d47946;
+$red: #7a2c1f;
+
+.explode-container {
+  position: absolute;
+  width: 20rem; height: 20rem;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    display: block; 
+    width: 2rem; height: 2rem;
+    background: rgba(#000,.25);
+    transform: rotate(45deg);
+    outline: 10px solid rgba(#000,.1);
+  }
+  &:nth-child(4n),
+  &:nth-child(7n){
+    &:before {
+      display: none;
+    }
+  }
+}
+.particle {
+  position: absolute;
+  display: block;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  
+  @for $i from 0 through 20 {
+    &:nth-child(#{$i + 1}) {
+      .sparcle {
+        animation-delay: $i * 50ms;
+      }
+    }
+  } 
+}
+.sparcle {
+  position: absolute;
+  display: block;
+  top: 0; left: 0;
+  width: 3rem; height: 3rem;
+  background: rgba($white,0);
+  will-change: transform, box-shadow, background-color;
+  transform: rotate(45deg) scale(0.5) translateZ(0);
+  animation: explode 333ms;
+  
+  box-shadow: 0 0 0 0 $yellow;
+}
+
+@keyframes bkhta{
+  0%,70%{text-shadow:none;}
+  71%,100%{text-shadow:0px 0px 0px yellow,0px 0px 0px yellow,0px 0px 2px red;}
+  85%{text-shadow:0px 0px 30px orange,0px 0px 30px orange,0px 0px 60px red;}
+}
+.bkht{
+  animation:bkhta .5s 6 forwards;
+}
+
+@keyframes explode {
+  0% {
+    background-color: $white;
+    transform: rotate(45deg) scale(1.2) translateZ(0);
+    box-shadow: 0 0 0 0 $yellow;
+  }
+  40% {
+    background-color: rgba($white,.1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1) translateZ(0);
+    box-shadow: 0 0 0 10px $yellow;
+    background-color: rgba($white,0);
+  }
+  60% {
+    box-shadow: 0 0 0 50px $orange;
+    transform: rotate(45deg) scale(0.5) translateZ(0);
+  }
+  70% {
+    background-color: rgba($white,0);
+    box-shadow: 0 0 0 30px $red;
+  }
+  100% {
+    background-color: $red;
+    box-shadow: 0 0 0 0 $red;
+    transform: rotate(45deg) scale(0.25) translateZ(0);
+  }
+}
+
+/* クソコード閲覧 */
+.kusocode-view-container div {
+  white-space: pre;
+  line-height: 0.7em;
+}
+
+.kusocode-container {
+  background-color: white;
+  width: 100%;
+  padding-top: 30px;
+  border-radius: 35% 35% 0 0;
+}
+
+.date-align {
+  text-align: right;
+}
+
+.black-code-for-kusocode-index {
+  padding: 15px;
+}
+
+.black-code-for-kusocode-index div {
+  color: white;
+}
+
+.kusocode-container a {
+  text-decoration: none;
+}
+
+.flower-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* level1 */
+.black-code-for-level1-introduction {
+  margin: auto;
+  width: 60%;
+}
+
+.black-code-for-level1-introduction p {
+  margin: 0;
+}

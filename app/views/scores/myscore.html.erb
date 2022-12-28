@@ -1,0 +1,25 @@
+<% content_for(:title, t('.title', user: current_user.username)) %>
+<div class='container'>
+  <div class='row'>
+    <div class='my-5'>
+      <div class='text-center col-sm-8 offset-sm-2'>
+        <h3><%= t('.title', user: current_user.username) %></h3>
+        <!-- myscore-container -->
+        <div class='myscore-container mt-3'>
+          <table class='table table-stripe'>
+            <thead>
+                <th>Level</th>
+                <th>Result</th>
+                <th>Time</th>
+                <th>Your Rank</th>
+            </thead>
+            <tbody>
+              <%= render partial: 'myrecord', collection: @myrecords %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /myscore-container -->
+      </div>
+    </div>
+  </div>
+</div>

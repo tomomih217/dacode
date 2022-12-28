@@ -2,8 +2,25 @@
 <div class='container'>
   <div class='row'>
     <div class='my-5'>
-      <div class='text-center col-sm-10 offset-sm-1'>
-        <%= link_to '次へ', level_step1_path(@level), class: 'btn btn-primary' %>
+      <div class='black-code-area black-code-for-level1-introduction'>
+        <p>def check_num(num)<br>  return 0<br>  if num >= 0<br>    return num<br>  end<br> end</p>
+      </div>
+      <div class='col-lg-6 offset-lg-3 col-sm-8 offset-sm-2 mt-3'>
+        <p>
+          大変だ！開発中に野生のクソコードが現れた！<br>
+          このままでは納期に支障が出てしまう…。ん？なんだ、このスイッチは？<br>
+          え、クソコード破壊ボタン！？<br>
+          これを使えばクソコードを撃退できるかもしれない！
+        </p>
+        <p>
+          ふむふむ、これが取扱説明書か。スイッチを起動させるためには設定が必要みたいだ。<br>
+          設定方法は…えっ、クイズに答えなきゃいけない？<br>
+          なんだかよくわからないけれど、やるしかない！
+        </p>
+      </div>
+      <div class='text-center'>
+        <h3>この謎を解き明かして、クソコードを破壊しよう！</h3>
+        <%= link_to '次へ', level_step1_path(@level), class: 'btn btn-success' %>
       </div>
     </div>
   </div>

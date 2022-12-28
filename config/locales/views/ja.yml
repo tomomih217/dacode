@@ -6,9 +6,11 @@ ja:
     logout: 'ログアウト'
     game_start: 'ゲームスタート'
     ranking: 'ランキング'
+    vanish: 'クソコード破壊'
     grave: 'クソコードの墓場'
     ok: 'はい'
     cancel: 'キャンセル'
+    delete: '削除'
     message:
       login: 'ログインしました'
       not_login: 'ログインできませんでした'
@@ -16,6 +18,7 @@ ja:
       forget_password: 'パスワードをお忘れの場合'
       created: '%{item}を作成しました'
       not_created: '%{item}を作成できませんでした'
+      deleted: '%{item}を削除しました'
       finish_game: 'ゲームを終了しました。お疲れ様でした。'
       already_game: 'すでにゲームへの挑戦が終わっています'
   static_pages:
@@ -32,9 +35,23 @@ ja:
       title: 'ゲーム一覧'
     show:
       title: 'ゲーム選択'
+    level1:
+      introduction:
+        title: 'イントロダクション'
   scores:
     index:
       title: 'ランキング'
       level1: 'Level1'
       level2: 'Level2'
       rank: '順位'
+    myscore:
+      title: '%{user}の成績'
+  kusocodes:
+    index:
+      title: 'クソコード閲覧'
+      delete: '削除'
+    new:
+      title: 'クソコード破壊'
+      vanish_btn: '破壊'
+      submit_btn: '投稿'
+

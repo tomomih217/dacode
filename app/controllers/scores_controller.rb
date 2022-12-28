@@ -8,4 +8,8 @@ class ScoresController < ApplicationController
   def show
     @record = Record.find(params[:id])
   end
+
+  def myscore
+    @myrecords = current_user.records
+  end
 end

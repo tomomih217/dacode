@@ -1,0 +1,2 @@
+$("#js-flower-button-for-kusocode-<%= @kusocode.id %>").replaceWith("<%= j(render 'kusocodes/flowered', kusocode: @kusocode) %>")
+$("#js-flower-count-for-kusocode-<%= @kusocode.id %>").replaceWith("<%= j(render 'kusocodes/flower_count', kusocode: @kusocode) %>")

@@ -1,33 +1,52 @@
 <header class='sticky-top'>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+  <nav class="navbar navbar-expand-lg navbar-dark py-3" id='header-bg'>
     <div class="container-fluid">
-      <%= link_to 'クソコードは消えない', root_path, class: 'navbar-brand' %>
+      <%= link_to t('defaults.brand'), root_path, class: 'navbar-brand' %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item me-3">
+            <%= link_to levels_path, class: 'text-decoration-none' do %>
+              <%= image_tag 'icon_game.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
+              <div class='nav-link-text text-light text-center mt-1'><%= t('defaults.game_start') %></div>
+            <% end %>
+          </li>
+          <li class="nav-item me-3">
+            <%= link_to ranking_path, class: 'text-decoration-none' do %>
+              <%= image_tag 'icon_ranking.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
+              <div class='nav-link-text text-light text-center mt-1'><%= t('defaults.ranking') %></div>
+            <% end %>
+          </li>
+          <li class="nav-item me-3">
+            <%= link_to new_kusocode_path, class: 'text-decoration-none' do %>
+              <%= image_tag 'icon_vanish.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
+              <div class='nav-link-text text-light text-center mt-1'><%= t('defaults.vanish') %></div>
+            <% end %>
+          </li>
+          <li class="nav-item me-3">
+            <%= link_to kusocodes_path, class: 'text-decoration-none' do %>
+              <%= image_tag 'icon_grave.png', size: '30x30', class: 'nav-link p-0 m-auto' %>
+              <div class='nav-link-text text-light text-center mt-1 mb-2'><%= t('defaults.grave') %></div>
+            <% end %>
+          </li>
+          <span class="border-start border-white mx-2"></span>
           <% if logged_in? %>
-            <li class="nav-item">
-              <%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'nav-link' %>
-            </li>
+            <div class='dropstart text-center'>
+              <button type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
+                <%= image_tag 'icon_user.png', size: '30x30', class: 'p-0 m-auto' %>
+              </button>
+              <ul class='dropdown-menu'>
+                <li><%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'dropdown-item' %></li>
+                <li><%= link_to t('scores.myscore.title', user: current_user.username), myscore_path, class: 'dropdown-item' %></li>
+              </ul>
+            </div>
           <% else %>
             <li class="nav-item">
-              <%= link_to t('defaults.login'), login_path, class: 'nav-link active' %>
+              <%= link_to t('defaults.login'), login_path, class: 'nav-link text-center active' %>
             </li>
           <% end %>
-          <li class="nav-item">
-            <%= link_to t('defaults.game_start'), levels_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to t('defaults.ranking'), ranking_path, class: 'nav-link' %>
-          </li>
-          <li>
-            <a class="nav-link" href='#'>クソコード破壊</a>
-          </li>
-          <li>
-            <a class="nav-link" href='#'><%= t('defaults.grave') %></a>
-          </li>
         </ul>
       </div>
     </div>
