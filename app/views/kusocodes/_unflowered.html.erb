@@ -1,3 +1,3 @@
 <%= link_to flower_path(current_user.flowers.find_by(kusocode_id: kusocode.id)), id: "js-flower-button-for-kusocode-#{kusocode.id}", remote: true, method: :delete do %>
-  <%= image_tag 'grave-black-flower.png', size: '20x20' %>
+  <%= image_tag 'grave-black-flower.png', size: '20x20', alt: "black-flower-for-kusocode-#{kusocode.id}" %>
 <% end %>

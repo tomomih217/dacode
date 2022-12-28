@@ -10,7 +10,7 @@
       <% if logged_in? %>
         <%= render 'flower', kusocode: kusocode %>
       <% else %>
-        <%= image_tag 'grave-white-flower.png', size: '20x20' %>
+        <%= image_tag 'grave-white-flower.png', size: '20x20', alt: "white-flower-for-kusocode-#{kusocode.id}" %>
       <% end %>
       <%= render 'flower_count', kusocode: kusocode %>
     </div>

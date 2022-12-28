@@ -1,13 +1,13 @@
 <div class='flower-icon'>
   <% if current_user.flowered?(kusocode) %>
     <% if current_user.own?(kusocode) %>
-      <%= image_tag 'grave-black-flower.png', size: '20x20' %>
+      <%= image_tag 'grave-black-flower.png', size: '20x20', alt: "black-flower-for-kusocode-#{kusocode.id}" %>
     <% else %>
       <%= render 'unflowered', kusocode: kusocode %>
     <% end %>
   <% else %>
     <% if current_user.own?(kusocode) %>
-      <%= image_tag 'grave-white-flower.png', size: '20x20' %>
+      <%= image_tag 'grave-white-flower.png', size: '20x20', alt: "white-flower-for-kusocode-#{kusocode.id}" %>
     <% else %>
       <%= render 'flowered', kusocode: kusocode %>
     <% end %>
