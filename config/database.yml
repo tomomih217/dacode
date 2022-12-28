@@ -52,3 +52,4 @@ production:
   database: clc7229h700ckbequ5fc476ky
   username: clc7229h500cibequ3obchmxx
   password: <%= ENV['DISABLE_TO_VANISH_DACODE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %> 
