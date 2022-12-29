@@ -8,5 +8,5 @@
 
 level.create (
   name: '準備中',
-  level_image: 'level1_img.jpg'
+  level_image: '/images/level1_img.jpg'
 )

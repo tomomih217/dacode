@@ -10,7 +10,11 @@
           <small>※評価機能は会員登録後に利用できます。</small>
         </p>
         <div class='kusocode-view-container'>
-          <%= render @kusocodes %>
+          <% if @kusocodes.present? %>
+            <%= render @kusocodes %>
+          <% else %>
+            <%= t('.zero_message') %>
+          <% end %>
         </div>
       </div>
     </div>

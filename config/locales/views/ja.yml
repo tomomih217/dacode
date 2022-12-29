@@ -44,12 +44,15 @@ ja:
       level1: 'Level1'
       level2: 'Level2'
       rank: '順位'
+      zero_message: 'まだクリアした人はいません'
     myscore:
       title: '%{user}の成績'
+      zero_message: 'まだ挑戦したゲームはありません'
   kusocodes:
     index:
       title: 'クソコード閲覧'
       delete: '削除'
+      zero_message: 'まだ供養されたクソコードはありません'
     new:
       title: 'クソコード破壊'
       vanish_btn: '破壊'
