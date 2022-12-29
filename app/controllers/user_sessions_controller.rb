@@ -4,7 +4,7 @@ class UserSessionsController < ApplicationController
     def new ;end
 
     def create
-      @user = login(params[:email], params[:password])
+      @user = login(params[:username], params[:password])
       if @user
         redirect_back_or_to myscore_url, success: t('defaults.message.login')
       else
@@ -21,6 +21,6 @@ class UserSessionsController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:email, :password)
+      params.require(:user).permit(:username, :password)
     end
 end
