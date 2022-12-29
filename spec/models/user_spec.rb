@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'バリデーションテスト' do
     let(:user) { FactoryBot.create(:user) }
+    let(:user_b){ FactoryBot.create(:user, username: 'user_b') }
     subject { user.valid? }
     context 'usernameカラムにおいて' do
       it 'usernameは必ず存在すること' do
@@ -17,15 +18,10 @@ RSpec.describe User, type: :model do
         user.username = '0' * 21
         is_expected.to eq false;
       end
-    end
-    context 'emailカラムにおいて' do
-      it 'emailは必ず存在すること' do
-        user.email = ''
-        is_expected.to eq false;
-      end
-      it 'emailは一意であること(同じemailは許容しない)' do
-        another_user = FactoryBot.build(:user, email: user.email)
-        expect(another_user.valid?).to eq false;
+      it '重複するusernameは登録できないこと' do
+        user_b
+        user.username = user_b.username
+        is_expected.to eq false
       end
     end
     context 'passwordにおいて' do
