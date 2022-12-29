@@ -13,7 +13,7 @@
           <% if @kusocodes.present? %>
             <%= render @kusocodes %>
           <% else %>
-            <%= t('.zero_message') %>
+            <div class='text-center'><%= t('.zero_message') %></div>
           <% end %>
         </div>
       </div>

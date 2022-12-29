@@ -11,11 +11,7 @@
         <!-- ranking-container -->
         <div class='ranking-container mt-3'>
           <h5><%= Record.human_attribute_name(:level) %>: <%= t('.level1') %></h5>
-          <% @lv1_records.present? %>
             <%= render 'ranking', records: @lv1_records %>
-          <% else %>
-            <%= t('.zero_message') %>
-          <% end %>
         </div>
         <!-- /ranking-container -->
       </div>

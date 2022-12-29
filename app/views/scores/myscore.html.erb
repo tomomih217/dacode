@@ -17,7 +17,7 @@
               <%= render partial: 'myrecord', collection: @myrecords %>
             </tbody>
           </table>
-          <%= t('.zero_message') %>
+          <%= t('.zero_message') unless @myrecords.present? %>
         </div>
         <!-- /myscore-container -->
       </div>
