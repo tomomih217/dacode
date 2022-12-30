@@ -84,7 +84,7 @@ function sparcle() {
   var explodeArea = document.getElementById("js-explode");
   var clientRect = explodeArea.getBoundingClientRect();
   var x = clientRect.left + 150;
-  var y = clientRect.top + 100;
+  var y = clientRect.top + window.pageYOffset + 100;
   explosions.push( exolpodeGroup(x, y, {scale: 1, x: -50, y: -50, r: 0}) );
   explosions.push( exolpodeGroup(x, y, {scale: 1, x: 0, y: -50, r: 0}) );
   explosions.push( exolpodeGroup(x, y, {scale: .5, x: -80, y: -50, r: 0}) );
