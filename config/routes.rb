@@ -11,12 +11,7 @@ Rails.application.routes.draw do
     member do
       resources :records, only: %i[create update]
     end
-    scope module: :levels do
-      controller :level1 do
-        get 'introduction'
-        get 'step1'
-      end
-    end
+    get 'steps/:name', controller: 'steps', action: 'show'
   end
   resources :scores, only: %i[show]
   get '/ranking', to: 'scores#index'
