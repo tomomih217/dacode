@@ -1,0 +1,50 @@
+<% content_for(:title, t('levels.steps.lv1_step1')) %>
+<div class='container mt-3'>
+  <p class='text-center'>クイズを解いてボタンの初期設定を完了させよう</p>
+  <div class='text-center'>
+    <%= image_tag 'blue_button.png', size: '200x130' %>
+    <p>↓</p>
+  </div>
+  <div class='grid-container my-3'>
+    <!-- grid開始 -->
+    <div class="grid">
+      <!-- 文字を入れます -->
+      <% (1..10).each do |y| %>
+        <% (1..8).each do |x| %>
+          <span class='crossword-answer' id="ans-<%= x %>-<%= y %>"><%= lv1_crossword_answer(x, y) %></span>
+        <% end %>
+      <% end %>
+      <!-- /文字入れ -->
+      <!-- 線の描画 -->
+      <% (1..80).each do |n| %>
+        <span class="grid__item grid__item--<%= n %>"></span>
+      <% end %>
+      <!-- /線の描画 -->
+      <!-- 不要なマスを黒塗りにしています -->
+      <div class="grid grid--2">
+        <% (1..8).each do |x| %>
+          <% (1..2).each do |y| %>
+            <span class="grid__item grid_item-<%= x %>-<%= y %>"></span>
+          <% end %>
+        <% end %>
+      </div>
+      <!-- /黒塗り -->
+    </div>
+    <!-- /grid -->    
+  </div>
+  <div class='quiz-links-container mb-3'>
+    <ul>
+      <li>設問１</li>
+      <li>設問２</li>
+      <li>設問３</li>
+      <li>設問４</li>
+      <li>設問５</li>
+      <li>設問６</li>
+      <li>設問７</li>
+      <li>設問８</li>
+    </ul>
+  </div>
+  <div class='text-center my-3'>
+    <%= link_to '次へ', { controller: 'steps', action: 'show', name: 'lv1_step2' }, class: 'btn btn-success' %>
+  </div>
+</div>

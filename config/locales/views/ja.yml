@@ -36,6 +36,7 @@ ja:
     show:
       title: 'ゲーム選択'
     steps:
+      lv1_step1: 'ステップ１'
       defaults:
         introduction_title: 'イントロダクション'
   scores:

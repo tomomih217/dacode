@@ -32,4 +32,10 @@ module ApplicationHelper
   def remove_br(kusocode)
     kusocode.code.gsub(/[\r\n]/, '')
   end
+
+  # lv1のクロスワードの回答を表示する
+  def lv1_crossword_answer(x, y)
+    a_heads = [6, 5, 6, 5, 5, 1, 6, 3]
+    'a' if y == a_heads[x - 1]
+  end
 end
