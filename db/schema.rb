@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_29_014219) do
+ActiveRecord::Schema.define(version: 2023_01_07_154714) do
 
   create_table "flowers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "user_id"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2022_12_29_014219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "level_image", default: "/images/level_noimage.jpg", null: false
+  end
+
+  create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "quiz_id", null: false
+    t.string "currect_answer", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
