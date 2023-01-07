@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :records, only: %i[create update]
     end
     get 'steps/:name', controller: 'steps', action: 'show'
+    post 'step/:name', controller: 'steps', action: 'create'
   end
   resources :scores, only: %i[show]
   get '/ranking', to: 'scores#index'
