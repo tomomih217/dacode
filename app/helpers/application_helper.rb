@@ -36,6 +36,11 @@ module ApplicationHelper
   # lv1のクロスワードの回答を表示する
   def lv1_crossword_answer(x, y)
     a_heads = [6, 5, 6, 5, 5, 1, 6, 3]
-    'a' if y == a_heads[x - 1]
+    ans_array = @answers.select{|answer|answer.quiz_id == 9 - x}
+    return if ans_array[0].nil?
+    answer = ans_array[0].answer
+    return if y < a_heads[x - 1] || y > a_heads[x - 1] + answer.length
+    str_array = answer.chars
+    str_array[y - a_heads[x - 1]]
   end
 end

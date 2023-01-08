@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :flowers, dependent: :destroy
   has_many :flowered_kusocodes, through: :flowers, source: :kusocode
   has_many :answers, dependent: :destroy
+  has_many :answered_quizzes, through: :answers, source: :quiz
 
   validates :username, presence: true, length: { maximum: 20 }, uniqueness: true
   # validates :email, presence: true, uniqueness: true
