@@ -36,9 +36,13 @@ ja:
     show:
       title: 'ゲーム選択'
     steps:
-      lv1_step1: 'ステップ１'
+      step1: 'ステップ１'
+      step2: 'ステップ２'
+      step3: 'ステップ３'
       defaults:
         introduction_title: 'イントロダクション'
+        hint: 'ヒント'
+        currect_answer: '模範回答'
   scores:
     index:
       title: 'ランキング'

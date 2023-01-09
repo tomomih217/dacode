@@ -12,8 +12,10 @@ Rails.application.routes.draw do
       resources :records, only: %i[create update]
     end
     get 'steps/:name', controller: 'steps', action: 'show'
-    get 'steps/:name', controller: 'answers', action: 'new'
+    get 'steps/:name/new', controller: 'answers', action: 'new'
+    get 'steps/:name/edit', controller: 'answers', action: 'edit'
     post 'steps/:name', controller: 'answers', action: 'create'
+    patch 'steps/:name', controller: 'answers', action: 'update'
   end
   resources :scores, only: %i[show]
   get '/ranking', to: 'scores#index'

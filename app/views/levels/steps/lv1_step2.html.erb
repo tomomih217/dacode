@@ -1,4 +1,4 @@
-<% content_for(:title, t('levels.steps.lv1_step2')) %>
+<% content_for(:title, t('levels.steps.step2')) %>
 <div class='container col-lg-8 offset-lg-2'>
   <div class='row'>
     <div class='border my-3'>
@@ -15,9 +15,12 @@
       </div>
     </div>
     <div>
-      <label name='answer'>使用するメソッド名</label>
-      <input type='text', name='answer'>
-      <input type='button', value='実行', class='btn btn-sm btn-success'>
+      <%= form_with model:@answer, local: true do |f| %>
+        <%= f.label :answer, '使用するメソッド名' %>
+        <%= f.text_field :answer %>
+        <%= f.hidden_field :answer, name: 'quiz_id', value: '9' %>
+        <%= f.submit '実行', class: 'btn btn-sm btn-success' %>
+      <% end %>
     </div>
     <div>
       <div class='border border-dark rounded-3 p-3 my-3'>

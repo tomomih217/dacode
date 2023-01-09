@@ -5,11 +5,4 @@ class StepsController < ApplicationController
     @answers = current_user.answers
     render "levels/steps/#{params[:name]}"
   end
-
-  def new
-    render "levels/steps/#{params[:name]}"
-  end
-
-  def create
-  end
 end

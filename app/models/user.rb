@@ -34,4 +34,10 @@ class User < ApplicationRecord
   def flowered?(kusocode)
     flowered_kusocodes.include?(kusocode)
   end
+
+  # 回答済かを判定する
+  def have_answer?(quiz_id)
+    ans_array = answers.select{|answer|answer.quiz_id == quiz_id}
+    ans_array[0].nil? ? false : true
+  end
 end
