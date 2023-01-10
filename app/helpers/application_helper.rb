@@ -33,7 +33,7 @@ module ApplicationHelper
     kusocode.code.gsub(/[\r\n]/, '')
   end
 
-  # lv1のクロスワードの回答を表示する
+  # lv1のクロスワードの個々の回答を表示する
   def lv1_crossword_answer(x, y)
     a_heads = [6, 5, 6, 5, 5, 1, 6, 3]
     ans_array = @answers.select{|answer|answer.quiz_id == 9 - x}
@@ -42,5 +42,21 @@ module ApplicationHelper
     return if y < a_heads[x - 1] || y > a_heads[x - 1] + answer.length
     str_array = answer.chars
     str_array[y - a_heads[x - 1]]
+  end
+
+  # クロスワードから出てきた言葉を表示する
+  def lv1_step1_answer
+    str = ''
+    ans_char_idx = [0, 1, 0, 1, 1, 5, 0, 3]
+    ans_array = []
+    (1..8).each do |n|
+      ans = @answers.select{|answer|answer.quiz_id == 9 - n}
+      ans_array << ans[0]
+    end
+    ans_array.each_with_index do |ans, idx|
+      ans.present? ? add_str = ans.answer[ans_char_idx[idx]] : add_str = '_'
+      str << add_str
+    end
+    str.upcase
   end
 end

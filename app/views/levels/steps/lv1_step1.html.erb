@@ -44,6 +44,12 @@
     </ul>
   </div>
   <div class='text-center my-3'>
-    <%= link_to '次へ', { controller: 'steps', action: 'show', name: 'lv1_step2' }, class: 'btn btn-success' %>
+    <% if lv1_step1_answer == 'RESPONSE' %>
+      <p>answer. <span class='h3 text-danger'><%= lv1_step1_answer %></span></p>
+      <p><small class='text-danger'>You are correct!</small></p>
+      <%= link_to '次へ', { controller: 'answers', action: 'new', name: 'lv1_step2', quiz_id: 9 }, class: 'btn btn-success mb-3' %>
+    <% else %>
+      <p>answer. <span class='h3'><%= lv1_step1_answer %></span></p>
+    <% end %>
   </div>
 </div>
