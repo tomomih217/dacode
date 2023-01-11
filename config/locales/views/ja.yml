@@ -39,6 +39,13 @@ ja:
       step1: 'ステップ１'
       step2: 'ステップ２'
       step3: 'ステップ３'
+      quiz1: '設問１'
+      quiz2: '設問２'
+      quiz3: '設問３'
+      quiz4: '設問４'
+      quiz5: '設問５'
+      quiz6: '設問６'
+      quiz7: '設問７'
       defaults:
         introduction_title: 'イントロダクション'
         hint: 'ヒント'

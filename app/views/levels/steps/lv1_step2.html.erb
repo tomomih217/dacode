@@ -2,37 +2,39 @@
 <div class='container col-lg-8 offset-lg-2'>
   <div class='row'>
     <div class='border my-3'>
-      <p>クイズを埋めたけど・・・あれ？これおかしくないか？<br>あっ、取扱説明書に続きがある！<br>「最後にメソッドを使ってボタンを変換すること」？<br>下にはメソッドが書いてあるけど、どういう意味？</p>
+      <p>クイズを埋めたけど・・・あれ？ボタンを押すと<span class='text-danger'>クソコードが増えるぞ！？</span><br>あっ、取扱説明書に続きがある！<br>「最後にメソッドを使ってボタンを変換すること」？</p>
       <h5>正しく設定しなおそう。</h5>
     </div>
-    <div class='d-flex mt-3'>
-      <%= image_tag 'blue_button.png', size: '200x130' %>
-      <div class='ms-5'>
-        <p>設定</p>
-        <h5>HTTPメソッド：DELETE</h5>
-        <h3>RESPONSE</h3>
-        <p>を送信しクソコードを破壊する。</p>
-      </div>
-    </div>
-    <div>
-      <% @answer = current_user.answers.build %>
+    <div class='text-center mb-3'>
+      <%= render partial: '/levels/steps/answer_form', locals: { label: '使用するメソッド名',quiz_id: @quiz_id } %>
+      <!--
       <%= form_with model:@answer, url: {controller: 'answers', action: 'create'}, local: true do |f| %>
         <%= f.label :answer, '使用するメソッド名' %>
         <%= f.text_field :answer %>
         <%= f.hidden_field :quiz_id, value: "#{@quiz_id}" %>
         <%= f.submit '実行', class: 'btn btn-sm btn-success' %>
-      <% end %>
+      <% end %> -->
     </div>
-    <div>
-      <div class='border border-dark rounded-3 p-3 my-3'>
-        <div class='quiz-method'>def change_1(response)<br>  adds = [0, 0, -3, 8, -10, 7, 3, x]<br>  response.map.with_index{|x, index| x = x + adds[index]}<br>end</div>
+    <div class='d-flex'>
+      <div class='black-code-area black-code-area-for-lv1_step2' id='js-append-code'>
+        <p>def check_num(num)<br>  return 0<br>  if num >= 0<br>    return num<br>  end<br> end</p>
       </div>
-      <div class='border border-dark rounded-3 p-3 my-3'>
-        <div class='quiz-method'>def change_2(response)<br>  adds = [0, 0, -2, 5, -10, 5, 1, x]<br>  response.map.with_index{|x, index| x = x + adds[index]}<br>end</div>
+      <div class='delete-btn-area'>
+        <% if true %>
+          <%= link_to '#', remote: true do %>
+            <%= image_tag 'blue_cre_btn.png', size: '150x150', id: 'append-code-btn', onclick: 'appendCode()' %>
+          <% end %>
+        <% else %>
+          <%= image_tag 'blue_cre_btn.png', size: '150x150' %>
+        <% end %>
+        <p>設定</p>
+        <h5>HTTPメソッド：<span class='text-primary'>CREATE</span></h5>
+        <h3>REQUEST</h3>
+        <p>を送信しクソコードを破壊する。</p>
       </div>
-      <div class='border border-dark rounded-3 p-3 my-3'>
-        <div class='quiz-method'>def change_3(response)<br>  adds = [0, 1, -4, 5, -9, 6, 2, x]<br>  response.map.with_index{|x, index| x = x + adds[index]}<br>end</div>
-      </div>
+    </div>
+    <div class='text-center mt-3 pb-5'>
+      <%= link_to '戻る', { controller: 'steps', action: 'show', name: 'lv1_step1' }, class: 'btn btn-success' %>
     </div>
   </div>
 </div>

@@ -9,20 +9,15 @@
     <!-- grid開始 -->
     <div class="grid">
       <!-- 文字を入れます -->
-      <% (1..10).each do |y| %>
-        <% (1..8).each do |x| %>
+      <% (1..8).each do |y| %>
+        <% (1..7).each do |x| %>
           <span class='crossword-answer' id="ans-<%= x %>-<%= y %>"><%= lv1_crossword_answer(x, y) %></span>
         <% end %>
       <% end %>
       <!-- /文字入れ -->
-      <!-- 線の描画 -->
-      <% (1..80).each do |n| %>
-        <span class="grid__item grid__item--<%= n %>"></span>
-      <% end %>
-      <!-- /線の描画 -->
       <!-- 不要なマスを黒塗りにしています -->
       <div class="grid grid--2">
-        <% (1..8).each do |x| %>
+        <% (1..7).each do |x| %>
           <% (1..2).each do |y| %>
             <span class="grid__item grid_item-<%= x %>-<%= y %>"></span>
           <% end %>
@@ -30,26 +25,26 @@
       </div>
       <!-- /黒塗り -->
     </div>
-    <!-- /grid -->    
+    <!-- /grid -->
   </div>
   <div class='quiz-links-container mb-3'>
     <ul>
-      <% (1..8).each do |n| %>
+      <% (1..7).each do |n| %>
         <% if current_user.have_answer?(n) %>
-          <li><%= link_to "設問#{n}", { controller: 'answers', action: 'edit', name: "lv1_quiz#{n}", quiz_id: n } %></li>
+          <li><%= link_to "設問#{n}", { controller: 'answers', action: 'edit', name: "lv1_quiz", quiz_id: n } %></li>
         <% else %>
-          <li><%= link_to "設問#{n}", { controller: 'answers', action: 'new', name: "lv1_quiz#{n}", quiz_id: n } %></li>
+          <li><%= link_to "設問#{n}", { controller: 'answers', action: 'new', name: "lv1_quiz", quiz_id: n } %></li>
         <% end %>
       <% end %>
     </ul>
   </div>
-  <div class='text-center my-3'>
-    <% if lv1_step1_answer == 'RESPONSE' %>
-      <p>answer. <span class='h3 text-danger'><%= lv1_step1_answer %></span></p>
+  <div class='text-center pb-5'>
+    <% if lv1_step1_answer == 'REQUEST' %>
+      <p>answer. <span class='h3 text-danger'><%= lv1_step1_answer %></span><br>を送信しクソコードを破壊する。</p>
       <p><small class='text-danger'>You are correct!</small></p>
-      <%= link_to '次へ', { controller: 'answers', action: 'new', name: 'lv1_step2', quiz_id: 9 }, class: 'btn btn-success mb-3' %>
+      <%= link_to '次へ', { controller: 'answers', action: 'new', name: 'lv1_step2', quiz_id: 8 }, class: 'btn btn-success' %>
     <% else %>
-      <p>answer. <span class='h3'><%= lv1_step1_answer %></span></p>
+      <p>answer. <span class='h3'><%= lv1_step1_answer %></span><br>を送信しクソコードを破壊する。</p>
     <% end %>
   </div>
 </div>

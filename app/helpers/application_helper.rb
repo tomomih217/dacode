@@ -35,8 +35,8 @@ module ApplicationHelper
 
   # lv1のクロスワードの個々の回答を表示する
   def lv1_crossword_answer(x, y)
-    a_heads = [6, 5, 6, 5, 5, 1, 6, 3]
-    ans_array = @answers.select{|answer|answer.quiz_id == 9 - x}
+    a_heads = [5, 4, 5, 4, 2, 5, 1]
+    ans_array = @answers.select{|answer|answer.quiz_id == 8 - x}
     return if ans_array[0].nil? || ans_array[0].answer.nil?
     answer = ans_array[0].answer
     return if y < a_heads[x - 1] || y > a_heads[x - 1] + answer.length
@@ -47,10 +47,10 @@ module ApplicationHelper
   # クロスワードから出てきた言葉を表示する
   def lv1_step1_answer
     str = ''
-    ans_char_idx = [0, 1, 0, 1, 1, 5, 0, 3]
+    ans_char_idx = [0, 1, 0, 1, 3, 0, 4]
     ans_array = []
-    (1..8).each do |n|
-      ans = @answers.select{|answer|answer.quiz_id == 9 - n}
+    (1..7).each do |n|
+      ans = @answers.select{|answer|answer.quiz_id == 8 - n}
       ans_array << ans[0]
     end
     ans_array.each_with_index do |ans, idx|
