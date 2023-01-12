@@ -9,7 +9,7 @@
     <!-- grid開始 -->
     <div class="grid">
       <!-- 文字を入れます -->
-      <% (1..8).each do |y| %>
+      <% (1..10).each do |y| %>
         <% (1..7).each do |x| %>
           <span class='crossword-answer' id="ans-<%= x %>-<%= y %>"><%= lv1_crossword_answer(x, y) %></span>
         <% end %>

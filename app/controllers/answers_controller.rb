@@ -10,10 +10,10 @@ class AnswersController < ApplicationController
     @quiz_id = params[:answer][:quiz_id]
     if @answer.currect_len?
       if @answer.save
-        if @quiz_id.to_i < 9
+        if @quiz_id.to_i < 8
           params[:name] = 'lv1_step1'
-        elsif @quiz_id.to_i == 9
-          params[:name] = 'lv1_step3'
+        elsif @quiz_id.to_i == 8
+          params[:name] = 'lv1_step2'
         end
         @answers = current_user.answers
         render "/levels/steps/#{params[:name]}"
@@ -37,9 +37,13 @@ class AnswersController < ApplicationController
     @answer.answer = params[:answer][:answer]
     if @answer.currect_len?
       if @answer.update(answer_params)
-        params[:name] = 'lv1_step1'
+        if @quiz_id.to_i < 8
+          params[:name] = 'lv1_step1'
+        elsif @quiz_id.to_i == 8
+          params[:name] = 'lv1_step2'
+        end
         @answers = current_user.answers
-        redirect_to '/levels/1/steps/lv1_step1'
+        render "/levels/steps/#{params[:name]}"
       else
         redoing
       end

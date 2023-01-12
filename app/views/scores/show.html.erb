@@ -11,13 +11,26 @@
         <div class='result-container'>
           <div class='result-item'>
             <%= Record.human_attribute_name(:level) %>
-            <h3><%= set_level(@record) %></h3>
+            <h3><%= label_level(@record) %></h3>
           </div>
           <hr>
           <div class='result-item'>
             <%= Record.human_attribute_name(:user) %>
             <h3><%= @record.user.username %></h3>
           </div>
+          <hr>
+          <div class='result-item'>
+            <%= Record.human_attribute_name(:status) %>
+            <h3><%= @record.status %></h3>
+          </div>
+          <hr>
+          <div class='result-item'>
+            <%= Record.human_attribute_name(:rank) %>
+            <h3><%= display_rank(@record) %></h3>
+          </div>
+        </div>
+        <div class='mt-3'>
+          <%= link_to 'ランキングへ', ranking_path %>
         </div>
       </div>
     </div>

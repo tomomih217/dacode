@@ -11,6 +11,6 @@ class Answer < ApplicationRecord
 
   # 答えが合っているか判定
   def currect?
-    answer == quiz.currect_answer
+    answer.downcase == quiz.currect_answer.downcase
   end
 end

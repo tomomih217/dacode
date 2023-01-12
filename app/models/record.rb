@@ -7,7 +7,7 @@ class Record < ApplicationRecord
 
   def change_status(status_param)
     case status_param
-    when 'クリア'
+    when 'CLEAR!'
       cleared!
     when 'ギブアップ'
       giveup!

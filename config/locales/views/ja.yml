@@ -60,6 +60,8 @@ ja:
     myscore:
       title: '%{user}の成績'
       zero_message: 'まだ挑戦したゲームはありません'
+    show:
+      title: '成績'
   kusocodes:
     index:
       title: 'クソコード閲覧'

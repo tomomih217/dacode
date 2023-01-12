@@ -22,6 +22,14 @@ module ApplicationHelper
     "Level #{record.level_id}"
   end
 
+  # クリアタイムの順位を表示する
+  def display_rank(record)
+    level = Level.find(record.level_id)
+    records = level.records
+    ranking = records.order('updated_at-created_at asc').select(:id).map(&:id)
+    ranking.index(record.id) + 1
+  end
+
   # 正答率を表示する
   def percentage_of_correct_answer(level)
     percentage = level.records.where(status: 'cleared').count.to_f / level.records.count.to_f * 100
@@ -35,7 +43,7 @@ module ApplicationHelper
 
   # lv1のクロスワードの個々の回答を表示する
   def lv1_crossword_answer(x, y)
-    a_heads = [5, 4, 5, 4, 2, 5, 1]
+    a_heads = [7, 6, 7, 1, 4, 7, 3]
     ans_array = @answers.select{|answer|answer.quiz_id == 8 - x}
     return if ans_array[0].nil? || ans_array[0].answer.nil?
     answer = ans_array[0].answer
@@ -47,7 +55,7 @@ module ApplicationHelper
   # クロスワードから出てきた言葉を表示する
   def lv1_step1_answer
     str = ''
-    ans_char_idx = [0, 1, 0, 1, 3, 0, 4]
+    ans_char_idx = [0, 1, 0, 6, 3, 0, 4]
     ans_array = []
     (1..7).each do |n|
       ans = @answers.select{|answer|answer.quiz_id == 8 - n}
