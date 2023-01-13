@@ -1,3 +1,4 @@
+require 'securerandom'
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
@@ -39,5 +40,12 @@ class User < ApplicationRecord
   def have_answer?(quiz_id)
     ans_array = answers.select{|answer|answer.quiz_id == quiz_id}
     ans_array[0].nil? ? false : true
+  end
+
+  # ゲストユーザーを作成する
+  def create_guest_user
+    user = User.new(username: SecureRandom.alphanumeric(10), password: 'guest', password_confirmation: 'guest')
+    user.save!
+    login(user.username, user.password)
   end
 end

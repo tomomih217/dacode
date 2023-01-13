@@ -1,8 +1,14 @@
 class RecordsController < ApplicationController
-  skip_before_action :require_login
+  skip_before_action :require_login, only: %i[update]
   # タイム計測スタート
   def create
-    record = current_user.records.build(level_id: params[:id])
+    if current_user.present?
+      record = current_user.records.build(level_id: params[:id])
+    elsif params[:id] == '1'
+      user = create_guest_user
+      record = user.records.build(level_id: params[:id])
+      record.status = 3
+    end
     if record.save
       params[:name] = "lv#{params[:id]}_introduction"
       path = "/levels/#{params[:id]}/steps/#{params[:name]}"
