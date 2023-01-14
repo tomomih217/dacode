@@ -10,11 +10,12 @@ class User < ApplicationRecord
   has_many :answered_quizzes, through: :answers, source: :quiz
 
   validates :username, presence: true, length: { maximum: 20 }, uniqueness: true
-  # validates :email, presence: true, uniqueness: true
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+
+  enum role: { member: 0, guest: 1, admin: 2 }
 
   # ユーザーに紐付いているobjectかを判定
   def own?(object)
@@ -43,9 +44,9 @@ class User < ApplicationRecord
   end
 
   # ゲストユーザーを作成する
-  def create_guest_user
-    user = User.new(username: SecureRandom.alphanumeric(10), password: 'guest', password_confirmation: 'guest')
+  def self.create_guest_user
+    user = User.new(username: SecureRandom.alphanumeric(10), password: 'guest', password_confirmation: 'guest', role: 1)
     user.save!
-    login(user.username, user.password)
+    user
   end
 end
