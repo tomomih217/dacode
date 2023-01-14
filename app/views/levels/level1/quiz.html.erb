@@ -6,11 +6,11 @@
         <h3><%= t("levels.steps.quiz#{@quiz_id}") %></h3>
       </div>
       <div class='col-lg-8 offset-lg-2 col-sm-10 offset-sm-1'>
-        <%= render "levels/steps/lv1_quiz#{@quiz_id}" %>
+        <%= render "levels/level#{@level_id}/quiz#{@quiz_id}" %>
       </div>
       <div class='text-center'>
-        <%= render partial: 'levels/steps/answer_form', locals: { label: 'Answer', quiz_id: @quiz_id } %>
-        <%= link_to '戻る', { controller: 'steps', action: 'show', name: 'lv1_step1' } %>
+        <%= render partial: 'levels/shared/answer_form', locals: { label: 'Answer', quiz_id: @quiz_id } %>
+        <%= link_to '戻る', { controller: 'steps', action: 'show', name: 'step1' } %>
       </div>
     </div>
   </div>

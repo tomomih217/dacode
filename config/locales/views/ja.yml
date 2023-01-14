@@ -27,6 +27,8 @@ ja:
   users:
     new:
       title: '新規ユーザー作成'
+    edit:
+      title: 'ユーザー編集'
   user_sessions:
     new:
       title: 'ログイン'

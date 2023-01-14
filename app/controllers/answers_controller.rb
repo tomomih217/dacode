@@ -1,8 +1,10 @@
 class AnswersController < ApplicationController
+  skip_before_action :logout_guest
+  before_action :get_level_id
   def new
     @answer = current_user.answers.build
     @quiz_id = params[:quiz_id]
-    render "/levels/steps/#{params[:name]}"
+    render "/levels/level#{@level_id}/#{params[:name]}"
   end
 
   def create
@@ -11,12 +13,12 @@ class AnswersController < ApplicationController
     if @answer.currect_len?
       if @answer.save
         if @quiz_id.to_i < 8
-          params[:name] = 'lv1_step1'
+          params[:name] = 'step1'
         elsif @quiz_id.to_i == 8
-          params[:name] = 'lv1_step2'
+          params[:name] = 'step2'
         end
         @answers = current_user.answers
-        render "/levels/steps/#{params[:name]}"
+        render "/levels/level#{@level_id}/#{params[:name]}"
       else
         redoing
       end
@@ -28,7 +30,7 @@ class AnswersController < ApplicationController
   def edit
     @answer = current_user.answers.find_by(quiz_id: params[:quiz_id])
     @quiz_id = params[:quiz_id]
-    render "/levels/steps/#{params[:name]}"
+    render "/levels/level#{@level_id}/#{params[:name]}"
   end
 
   def update
@@ -38,12 +40,12 @@ class AnswersController < ApplicationController
     if @answer.currect_len?
       if @answer.update(answer_params)
         if @quiz_id.to_i < 8
-          params[:name] = 'lv1_step1'
+          params[:name] = 'step1'
         elsif @quiz_id.to_i == 8
-          params[:name] = 'lv1_step2'
+          params[:name] = 'step2'
         end
         @answers = current_user.answers
-        render "/levels/steps/#{params[:name]}"
+        render "/levels/level#{@level_id}/#{params[:name]}"
       else
         redoing
       end
@@ -60,6 +62,10 @@ class AnswersController < ApplicationController
 
   def redoing
     flash.now[:danger] = 'failed'
-    render "/levels/steps/#{params[:name]}"
+    render "/levels/level#{@level_id}/#{params[:name]}"
+  end
+
+  def get_level_id
+    @level_id = params[:level_id]
   end
 end

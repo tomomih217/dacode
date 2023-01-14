@@ -16,7 +16,7 @@
           <hr>
           <div class='result-item'>
             <%= Record.human_attribute_name(:user) %>
-            <h3><%= @record.user.username %></h3>
+            <h3><%= get_username(@record.user) %></h3>
           </div>
           <hr>
           <div class='result-item'>
@@ -30,7 +30,13 @@
           </div>
         </div>
         <div class='mt-3'>
-          <%= link_to 'ランキングへ', ranking_path %>
+          <% if current_user.guest? %>
+            <%= link_to 'ユーザー登録', edit_user_path(current_user), class: 'btn btn-lg btn-success my-3' %>
+            <p><small>※ユーザー登録するとあなたのクリアタイムがランキングに表示されます</small></p>
+            <%= link_to 'ランキングへ', ranking_path, data: { confirm: 'ユーザー登録しないとあなたのクリアタイムはランキングに反映されません。よろしいですか？' } %>
+          <% else %>
+            <%= link_to 'ランキングへ', ranking_path %>
+          <% end %>
         </div>
       </div>
     </div>

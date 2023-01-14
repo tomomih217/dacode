@@ -1,13 +1,50 @@
-<% content_for(:title, t('.title')) %>
-<div class='container'>
-  <div class='row'>
-    <div class='my-5'>
-      <div class='text-center col-sm-10 offset-sm-1'>
-        <%= form_with model: @record, local: true, method: :patch do |f| %>
-          <%= f.submit 'クリア', class: 'btn btn-primary' %>
-          <%= f.submit 'ギブアップ', class: 'btn btn-gray' %>
+<% content_for(:title, t('levels.steps.step1')) %>
+<div class='container mt-3'>
+  <p class='text-center'>クイズを解いてボタンの初期設定を完了させよう</p>
+  <div class='text-center'>
+    <%= image_tag 'blue_button.png', size: '200x130' %>
+    <p>↓</p>
+  </div>
+  <div class='grid-container my-3'>
+    <!-- grid開始 -->
+    <div class="grid">
+      <!-- 文字を入れます -->
+      <% (1..10).each do |y| %>
+        <% (1..7).each do |x| %>
+          <span class='crossword-answer' id="ans-<%= x %>-<%= y %>"><%= lv1_crossword_answer(x, y) %></span>
+        <% end %>
+      <% end %>
+      <!-- /文字入れ -->
+      <!-- 不要なマスを黒塗りにしています -->
+      <div class="grid grid--2">
+        <% (1..7).each do |x| %>
+          <% (1..2).each do |y| %>
+            <span class="grid__item grid_item-<%= x %>-<%= y %>"></span>
+          <% end %>
         <% end %>
       </div>
+      <!-- /黒塗り -->
     </div>
+    <!-- /grid -->
+  </div>
+  <div class='quiz-links-container mb-3'>
+    <ul>
+      <% (1..7).each do |n| %>
+        <% if current_user.have_answer?(n) %>
+          <li><%= link_to "設問#{n}", { controller: 'answers', action: 'edit', name: "quiz", quiz_id: n } %></li>
+        <% else %>
+          <li><%= link_to "設問#{n}", { controller: 'answers', action: 'new', name: "quiz", quiz_id: n } %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class='text-center pb-5'>
+    <% if lv1_step1_answer == 'REQUEST' %>
+      <p>answer. <span class='h3 text-danger'><%= lv1_step1_answer %></span><br>を送信しクソコードを破壊する。</p>
+      <p><small class='text-danger'>You are correct!</small></p>
+      <%= link_to '次へ', { controller: 'answers', action: 'new', name: 'step2', quiz_id: 8 }, class: 'btn btn-success' %>
+    <% else %>
+      <p>answer. <span class='h3'><%= lv1_step1_answer %></span><br>を送信しクソコードを破壊する。</p>
+    <% end %>
   </div>
 </div>

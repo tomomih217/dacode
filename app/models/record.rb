@@ -6,7 +6,7 @@ class Record < ApplicationRecord
   enum status: { challenge: 0, giveup: 1, cleared: 2, trial: 3 }
 
   def change_status(status_param)
-    return if status.trial?
+    return if status == 3
     case status_param
     when 'CLEAR!'
       cleared!

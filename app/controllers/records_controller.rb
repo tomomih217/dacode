@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   skip_before_action :require_login, only: %i[create]
+  skip_before_action :logout_guest, only: %i[update]
   # タイム計測スタート
   def create
     if current_user.present?
@@ -11,13 +12,13 @@ class RecordsController < ApplicationController
       record.status = 3
     end
     if record.save
-      params[:name] = "lv#{params[:id]}_introduction"
+      params[:name] = "introduction"
       path = "/levels/#{params[:id]}/steps/#{params[:name]}"
       redirect_to path
     else
       record = current_user.records.find_by(level_id: params[:id])
       if record && record.challenge?
-        params[:name] = "lv#{params[:id]}_step1"
+        params[:name] = "step1"
         path = "/levels/#{params[:id]}/steps/#{params[:name]}"
         redirect_to path
       else

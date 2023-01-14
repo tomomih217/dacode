@@ -25,7 +25,7 @@ module ApplicationHelper
   # クリアタイムの順位を表示する
   def display_rank(record)
     level = Level.find(record.level_id)
-    records = level.records
+    records = level.records.where('status = 2')
     ranking = records.order('updated_at-created_at asc').select(:id).map(&:id)
     ranking.index(record.id) + 1
   end
@@ -66,5 +66,10 @@ module ApplicationHelper
       str << add_str
     end
     str.upcase
+  end
+
+  # ゲストの場合、ユーザー名を'guest'と表示する
+  def get_username(user)
+    user.guest? ? "guest" : user.username
   end
 end
