@@ -3,13 +3,13 @@
     <%= f.label :answer, "#{label}" %>
     <%= f.text_field :answer, value: @answer.answer %>
     <%= f.hidden_field :quiz_id, value: "#{quiz_id}" %>
-    <%= f.submit '回答', class: 'btn btn-sm btn-success' %>
+    <%= f.submit t('levels.steps.defaults.answer'), class: 'btn btn-sm btn-success' %>
   <% end %>
 <% elsif params[:action] == 'edit' || params[:action] == 'update' %>
   <%= form_with model: @answer, url: { controller: 'answers', action: 'update' }, method: :patch, local: true do |f| %>
     <%= f.label :answer, "#{label}" %>
     <%= f.text_field :answer, value: @answer.answer %>
     <%= f.hidden_field :quiz_id, value: "#{quiz_id}" %>
-    <%= f.submit '回答', class: 'btn btn-sm btn-success' %>
+    <%= f.submit t('levels.steps.defaults.answer'), class: 'btn btn-sm btn-success' %>
   <% end %>
 <% end %>

@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class='text-center mt-3 pb-5' id='js-append-finish-btn'>
-      <%= link_to '戻る', { controller: 'steps', action: 'show', name: 'step1' }, class: 'btn btn-success', id: 'js-delete-return-btn-for-level1' %>
+      <%= link_to t('defaults.return'), { controller: 'steps', action: 'show', name: 'step1' }, class: 'btn btn-success', id: 'js-delete-return-btn-for-level1' %>
       <div id='js-append-clear-btn-for-level1' style='display: none;'>
         <%= form_with url: record_path(params[:level_id], current_user.records.find_by(level_id: params[:level_id])), method: :patch, local: true do |f| %>
             <%= f.submit 'CLEAR!', class: 'btn btn-lg btn-danger rounded-pill' %>

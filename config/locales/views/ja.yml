@@ -11,6 +11,9 @@ ja:
     ok: 'はい'
     cancel: 'キャンセル'
     delete: '削除'
+    next: '次へ'
+    return: '戻る'
+    giveup: 'ギブアップ'
     message:
       login: 'ログインしました'
       not_login: 'ログインできませんでした'
@@ -28,7 +31,7 @@ ja:
     new:
       title: '新規ユーザー作成'
     edit:
-      title: 'ユーザー編集'
+      title: 'ユーザー登録'
   user_sessions:
     new:
       title: 'ログイン'
@@ -52,6 +55,7 @@ ja:
         introduction_title: 'イントロダクション'
         hint: 'ヒント'
         currect_answer: '模範回答'
+        answer: '回答'
   scores:
     index:
       title: 'ランキング'

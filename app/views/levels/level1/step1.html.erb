@@ -33,9 +33,9 @@
     <ul>
       <% (1..7).each do |n| %>
         <% if current_user.have_answer?(n) %>
-          <li><%= link_to "設問#{n}", { controller: 'answers', action: 'edit', name: "quiz", quiz_id: n } %></li>
+          <li><%= link_to t("levels.steps.quiz#{n}"), { controller: 'answers', action: 'edit', name: "quiz", quiz_id: n } %></li>
         <% else %>
-          <li><%= link_to "設問#{n}", { controller: 'answers', action: 'new', name: "quiz", quiz_id: n } %></li>
+          <li><%= link_to t("levels.steps.quiz#{n}"), { controller: 'answers', action: 'new', name: "quiz", quiz_id: n } %></li>
         <% end %>
       <% end %>
     </ul>
@@ -44,7 +44,7 @@
     <% if lv1_step1_answer == 'REQUEST' %>
       <p>answer. <span class='h3 text-danger'><%= lv1_step1_answer %></span><br>を送信しクソコードを破壊する。</p>
       <p><small class='text-danger'>You are correct!</small></p>
-      <%= link_to '次へ', { controller: 'answers', action: 'new', name: 'step2', quiz_id: 8 }, class: 'btn btn-success' %>
+      <%= link_to t('defaults.next'), { controller: 'answers', action: 'new', name: 'step2', quiz_id: 8 }, class: 'btn btn-success' %>
     <% else %>
       <p>answer. <span class='h3'><%= lv1_step1_answer %></span><br>を送信しクソコードを破壊する。</p>
     <% end %>

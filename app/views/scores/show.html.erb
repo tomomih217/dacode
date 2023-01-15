@@ -31,11 +31,11 @@
         </div>
         <div class='mt-3'>
           <% if current_user.guest? %>
-            <%= link_to 'ユーザー登録', edit_user_path(current_user), class: 'btn btn-lg btn-success my-3' %>
+            <%= link_to t('users.edit.title'), edit_user_path(current_user), class: 'btn btn-lg btn-success my-3' %>
             <p><small>※ユーザー登録するとあなたのクリアタイムがランキングに表示されます</small></p>
-            <%= link_to 'ランキングへ', ranking_path, data: { confirm: 'ユーザー登録しないとあなたのクリアタイムはランキングに反映されません。よろしいですか？' } %>
+            <%= link_to t('scores.index.title'), ranking_path, data: { confirm: 'ユーザー登録しないとあなたのクリアタイムはランキングに反映されません。よろしいですか？' } %>
           <% else %>
-            <%= link_to 'ランキングへ', ranking_path %>
+            <%= link_to t('scores.index.title'), ranking_path %>
           <% end %>
         </div>
       </div>

@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  layout 'levels/layouts/application'
   skip_before_action :logout_guest
   before_action :get_level_id
   def new
