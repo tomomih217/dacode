@@ -7,7 +7,7 @@ module ApplicationHelper
 
   # recordのcreated_atとupdated_atの時間からクリアタイムを計算して返す
   def clear_time(record)
-    return unless record.cleared?
+    return '-- : -- : --' unless record.cleared?
     fin_time = record.updated_at
     st_time = record.created_at
     clear_time_second = fin_time - st_time
@@ -24,6 +24,7 @@ module ApplicationHelper
 
   # クリアタイムの順位を表示する
   def display_rank(record)
+    return '-' unless record.cleared?
     level = Level.find(record.level_id)
     records = level.records.where('status = 2')
     ranking = records.order('updated_at-created_at asc').select(:id).map(&:id)
