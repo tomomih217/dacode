@@ -1,0 +1,44 @@
+<% content_for(:title, t('levels.steps.defaults.hint')) %>
+<div class='container col-lg-8 offset-lg-2'>
+  <div class='row'>
+    <div class='mt-3'>
+      <p class='text-center'>
+        <a data-bs-toggle="collapse" href="#collapsehint1" role="button" aria-expanded="false" aria-controls="collapseExample">
+            ヒント1
+        </a>
+      </p>
+      <div class="collapse" id="collapsehint1">
+        <div class="card card-body">
+          あれっ？ボタンを押したらクソコードが増えていくぞ！？消えるんじゃなかったの！？
+        </div>
+      </div>
+    </div>
+    <div class='mt-3'>
+      <p class='text-center'>
+        <a data-bs-toggle="collapse" href="#collapsehint2" role="button" aria-expanded="false" aria-controls="collapseExample">
+            ヒント2
+        </a>
+      </p>
+        <div class="collapse" id="collapsehint2">
+        <div class="card card-body">
+          そういえば、取扱説明書には「メソッドを使ってボタンを変換すること」って書いてあったな。まだ変換すべきものが残っているってこと？
+        </div>
+      </div>
+    </div>
+    <div class='mt-3'>
+      <p class='text-center'>
+        <a data-bs-toggle="collapse" href="#collapsehint3" role="button" aria-expanded="false" aria-controls="collapseExample">
+            ヒント3
+        </a>
+      </p>
+        <div class="collapse" id="collapsehint3">
+        <div class="card card-body">
+          クソコードの「生成（CREATE)」を「削除（DELETE)」に変えたいから…そうか、このメソッドを使えばいいんだな！
+        </div>
+      </div>
+    </div>
+    <div class='text-center mt-3'>
+      <%= link_to '戻る', { controller: 'steps', action: 'show', name: 'lv1_step3' }, class: 'btn btn-success' %>
+    </div>
+  </div>
+</div>

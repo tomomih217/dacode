@@ -1,18 +1,37 @@
 class RecordsController < ApplicationController
+  skip_before_action :require_login, only: %i[create]
+  skip_before_action :logout_guest, only: %i[update]
   # タイム計測スタート
   def create
-    record = current_user.records.build(level_id: params[:id])
+    if current_user.present?
+      record = current_user.records.build(level_id: params[:id])
+    elsif params[:id] == '1'
+      user = User.create_guest_user
+      guest_user = login(user.username, 'guest')
+      record = guest_user.records.build(level_id: params[:id])
+      record.status = 3
+    end
     if record.save
-      redirect_to level_introduction_path(params[:id])
+      params[:name] = "introduction"
+      path = "/levels/#{params[:id]}/steps/#{params[:name]}"
+      redirect_to path
     else
-      redirect_to levels_path, danger: t('defaults.message.already_game')
+      record = current_user.records.find_by(level_id: params[:id])
+      if record && record.challenge?
+        params[:name] = "step1"
+        path = "/levels/#{params[:id]}/steps/#{params[:name]}"
+        redirect_to path
+      else
+        logout if logged_in?
+        redirect_to levels_path, danger: t('defaults.message.already_game')
+      end
     end
   end
 
   # タイム計測ストップ
   def update
-    record = current_user.records.find(params[:id])
-    record.change_status(params[:commit])
-    redirect_to root_path, success: t('defaults.message.finish_game')
+    @record = current_user.records.find(params[:id])
+    @record.change_status(params[:commit])
+    redirect_to score_path(@record), success: t('defaults.message.finish_game')
   end
 end

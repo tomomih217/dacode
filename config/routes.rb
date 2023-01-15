@@ -6,17 +6,16 @@ Rails.application.routes.draw do
   post '/login', to: 'user_sessions#create'
   delete '/logout', to: 'user_sessions#destroy'
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create edit update]
   resources :levels, only: %i[index show] do
     member do
       resources :records, only: %i[create update]
     end
-    scope module: :levels do
-      controller :level1 do
-        get 'introduction'
-        get 'step1'
-      end
-    end
+    get 'steps/:name', controller: 'steps', action: 'show'
+    get 'steps/:name/new', controller: 'answers', action: 'new'
+    get 'steps/:name/edit', controller: 'answers', action: 'edit'
+    post 'steps/:name', controller: 'answers', action: 'create'
+    patch 'steps/:name', controller: 'answers', action: 'update'
   end
   resources :scores, only: %i[show]
   get '/ranking', to: 'scores#index'

@@ -11,6 +11,9 @@ ja:
     ok: 'はい'
     cancel: 'キャンセル'
     delete: '削除'
+    next: '次へ'
+    return: '戻る'
+    giveup: 'ギブアップ'
     message:
       login: 'ログインしました'
       not_login: 'ログインできませんでした'
@@ -27,6 +30,8 @@ ja:
   users:
     new:
       title: '新規ユーザー作成'
+    edit:
+      title: 'ユーザー登録'
   user_sessions:
     new:
       title: 'ログイン'
@@ -35,9 +40,22 @@ ja:
       title: 'ゲーム一覧'
     show:
       title: 'ゲーム選択'
-    level1:
-      introduction:
-        title: 'イントロダクション'
+    steps:
+      step1: 'ステップ１'
+      step2: 'ステップ２'
+      step3: 'ステップ３'
+      quiz1: '設問１'
+      quiz2: '設問２'
+      quiz3: '設問３'
+      quiz4: '設問４'
+      quiz5: '設問５'
+      quiz6: '設問６'
+      quiz7: '設問７'
+      defaults:
+        introduction_title: 'イントロダクション'
+        hint: 'ヒント'
+        currect_answer: '模範回答'
+        answer: '回答'
   scores:
     index:
       title: 'ランキング'
@@ -48,6 +66,8 @@ ja:
     myscore:
       title: '%{user}の成績'
       zero_message: 'まだ挑戦したゲームはありません'
+    show:
+      title: '成績'
   kusocodes:
     index:
       title: 'クソコード閲覧'

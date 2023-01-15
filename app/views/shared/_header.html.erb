@@ -37,10 +37,12 @@
               <button type='button' class='btn dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false' id='mypage-icon'>
                 <%= image_tag 'icon_user.png', size: '30x30', class: 'p-0 m-auto' %>
               </button>
-              <ul class='dropdown-menu'>
-                <li><%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'dropdown-item' %></li>
-                <li><%= link_to t('scores.myscore.title', user: current_user.username), myscore_path, class: 'dropdown-item' %></li>
-              </ul>
+              <% unless current_user.guest? %>
+                <ul class='dropdown-menu'>
+                  <li><%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'dropdown-item' %></li>
+                  <li><%= link_to t('scores.myscore.title', user: current_user.username), myscore_path, class: 'dropdown-item' %></li>
+                </ul>
+              <% end %>
             </div>
           <% else %>
             <li class="nav-item">

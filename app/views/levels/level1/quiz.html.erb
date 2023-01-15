@@ -1,0 +1,17 @@
+<% content_for(:title, t("levels.steps.quiz#{@quiz_id}")) %>
+<div class='container'>
+  <div class='row'>
+    <div class='my-5'>
+      <div class='text-center'>
+        <h3><%= t("levels.steps.quiz#{@quiz_id}") %></h3>
+      </div>
+      <div class='col-lg-8 offset-lg-2 col-sm-10 offset-sm-1'>
+        <%= render "levels/level#{@level_id}/quiz#{@quiz_id}" %>
+      </div>
+      <div class='text-center'>
+        <%= render partial: 'levels/shared/answer_form', locals: { label: 'Answer', quiz_id: @quiz_id } %>
+        <%= link_to t('defaults.return'), { controller: 'steps', action: 'show', name: 'step1' } %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,6 +21,13 @@ ja:
       kusocode:
         code: 'コード'
         description: '説明'
+  enums:
+    record:
+      status:
+        challenge: '挑戦中'
+        giveup: 'ギブアップ'
+        cleared: 'クリア'
+        trial: 'お試し'
   attributes:
     created_at: '作成日'
     updated_at: '更新日'
