@@ -8,10 +8,10 @@
 
 levels = Level.all
 levels.each do |level|
-  Level.destroy(level.id)
+  Level.destroy(level.id) unless level.id == 1
 end
 
-Level.create(
+Level.update(1,
   name: 'Level1（お試し）',
   level_image: '/images/level1_img.jpg'
 )
