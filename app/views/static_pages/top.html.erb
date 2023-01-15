@@ -3,6 +3,7 @@
     <div class='row'>
       <!-- top-img-container -->
       <div class='top-img-container pt-5 col-lg-8 offset-lg-2 col-md-10 offset-md-1'>
+        <!-- トップ画面 -->
         <div class='top-monitor'>
           <%= image_tag 'top-monitor.png', width: '100%' %>
           <div class='top-text-container'>
@@ -12,6 +13,36 @@
             <%= link_to 'Game Start', levels_path, class: 'btn btn-lg btn-success' %>
           </div>
         </div>
+        <!-- /トップ画面 -->
+        <hr>
+        <!-- ゲームスタート -->
+        <div class='my-5 text-center'>
+          <p>当サイトは<span class='text-danger'>Ruby初学者及びRubyエンジニアを対象</span>としたゲームアプリです。<br>Rubyの知識の復習、学習や仕事の息抜きにご利用いただけます。</p>
+          <p>Level.1はユーザー登録なしでも遊ぶことができます。</p>
+          <%= link_to 'Game Start', levels_path, class: 'btn btn-lg btn-warning rounded-pill p-3 mt-5' %>
+        </div>
+        <!-- /ゲームスタート -->
+        <hr>
+        <!-- ranking -->
+        <div class='my-5 text-center'>
+          <p>各ゲームのランキングを見ることができます。</p>
+          <%= link_to 'ランキング', ranking_path, class: 'btn btn-lg btn-warning rounded-pill p-3 mt-5' %>
+        </div>
+        <!-- /ranking -->
+        <hr>
+        <!-- vanish_kusocode -->
+        <div class='my-5 text-center'>
+          <p>クソコードを破壊することができます。<br>クソコードだけでなく様々な鬱憤を破壊しましょう!</p>
+          <%= link_to 'クソコード破壊', new_kusocode_path, class: 'btn btn-lg btn-warning rounded-pill p-3 mt-5' %>
+        </div>
+        <!-- /vanish_kusocode -->
+        <hr>
+        <!-- grave -->
+        <div class='my-5 text-center'>
+          <p>他のユーザーが破壊したクソコードを見ることができます。<br></p>
+          <%= link_to 'クソコードの墓場', kusocodes_path, class: 'btn btn-lg btn-warning rounded-pill p-3 mt-5' %>
+        </div>
+        <!-- /grave -->
       </div>
       <!-- /top-img-container -->
     </div>
