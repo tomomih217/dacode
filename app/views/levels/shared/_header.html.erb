@@ -4,7 +4,7 @@
       <%= link_to t('defaults.brand'), root_path, class: 'navbar-brand' %>
       <div>
         <ul class='navbar-nav'>
-          <li class='nav-item d-flex align-items-center'><%= link_to t('levels.steps.defaults.introduction_title'), { controller: 'steps', action: 'show', name: 'introduction' }, class: 'text-white me-3' %></li>
+          <li class='nav-item d-flex align-items-center'><%= link_to t('levels.steps.defaults.introduction_title'), level_introduction_path(params[:level_id]), class: 'text-white me-3' %></li>
           <li class='nav-item'>
             <%= form_with url: record_path(params[:level_id], current_user.records.find_by(params[:level_id])), method: :patch, local: true do |f| %>
               <%= f.submit t('defaults.giveup'), class: 'btn btn-danger', data: { confirm: 'ギブアップします。よろしいですか？' } %>

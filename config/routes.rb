@@ -11,11 +11,12 @@ Rails.application.routes.draw do
     member do
       resources :records, only: %i[create update]
     end
-    get 'steps/:name', controller: 'steps', action: 'show'
-    get 'steps/:name/new', controller: 'answers', action: 'new'
-    get 'steps/:name/edit', controller: 'answers', action: 'edit'
-    post 'steps/:name', controller: 'answers', action: 'create'
-    patch 'steps/:name', controller: 'answers', action: 'update'
+    get 'introduction', to: 'steps#introduction', as: 'introduction'
+    resources :steps, only: %i[show]
+    get 'steps/:name/new', to: 'answers#new', as: 'new_answer'
+    get 'steps/:name/edit', to: 'answers#edit', as: 'edit_answer'
+    post 'steps/:name', to: 'answers#create', as: 'answers'
+    patch 'steps/:name', to: 'answers#update', as: 'answer'
   end
   resources :scores, only: %i[show]
   get '/ranking', to: 'scores#index'
