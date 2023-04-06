@@ -10,7 +10,7 @@
       </div>
       <div class='text-center'>
         <%= render partial: 'levels/shared/answer_form', locals: { label: 'Answer', quiz_id: @quiz_id } %>
-        <%= link_to t('defaults.return'), { controller: 'steps', action: 'show', name: 'step1' } %>
+        <%= link_to t('defaults.return'), level_step_path(params[:level_id], Settings.Level1.step1) %>
       </div>
     </div>
   </div>
