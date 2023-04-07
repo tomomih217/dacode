@@ -16,9 +16,7 @@ class RecordsController < ApplicationController
     else
       record = current_user.records.find_by(level_id: params[:id])
       if record && record.challenge?
-        params[:name] = "step1"
-        path = "/levels/#{params[:id]}/steps/#{params[:name]}"
-        redirect_to path
+        redirect_to level_introduction_path(params[:id])
       else
         logout if logged_in?
         redirect_to levels_path, danger: t('defaults.message.already_game')

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     member do
       resources :records, only: %i[create update]
     end
-    get 'introduction', to: 'steps#introduction', as: 'introduction'
+    get '/introduction', to: 'steps#introduction'
     resources :steps, only: %i[show] do
       get 'quizzes/:quiz_id/new', to: 'answers#new', as: 'new_answer'
       get 'quizzes/:quiz_id/edit', to: 'answers#edit', as: 'edit_answer'
