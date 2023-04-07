@@ -12,11 +12,12 @@ Rails.application.routes.draw do
       resources :records, only: %i[create update]
     end
     get 'introduction', to: 'steps#introduction', as: 'introduction'
-    resources :steps, only: %i[show]
-    get 'steps/:name/new', to: 'answers#new', as: 'new_answer'
-    get 'steps/:name/edit', to: 'answers#edit', as: 'edit_answer'
-    post 'steps/:name', to: 'answers#create', as: 'answers'
-    patch 'steps/:name', to: 'answers#update', as: 'answer'
+    resources :steps, only: %i[show] do
+      get 'quizzes/:quiz_id/new', to: 'answers#new', as: 'new_answer'
+      get 'quizzes/:quiz_id/edit', to: 'answers#edit', as: 'edit_answer'
+      post 'quizzes/:quiz_id', to: 'answers#create', as: 'answers'
+      patch 'quizzes/:quiz_id', to: 'answers#update', as: 'answer'
+    end
   end
   resources :scores, only: %i[show]
   get '/ranking', to: 'scores#index'
