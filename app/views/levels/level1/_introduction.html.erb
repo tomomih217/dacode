@@ -20,7 +20,7 @@
       </div>
       <div class='text-center'>
         <h3 class='my-5'>この謎を解き明かして、クソコードを破壊しよう！</h3>
-        <%= link_to t('defaults.next'), { controller: 'steps', action: 'show', name: 'step1' }, class: 'btn btn-success' %>
+        <%= link_to t('defaults.next'), level_step_path(level_id, Settings.Level1[:step1]), class: 'btn btn-success' %>
       </div>
     </div>
   </div>

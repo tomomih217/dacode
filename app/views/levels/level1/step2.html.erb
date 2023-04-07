@@ -2,16 +2,16 @@
 <div class='container col-lg-8 offset-lg-2'>
   <div class='row'>
     <div class='border my-3 p-3'>
-      <% if current_user.answers.find_by(quiz_id: @quiz_id)&.currect? %>
+      <% if current_user.answers.find_by(quiz_id: params[:quiz_id])&.currect? %>
         <h5>クソコードを破壊しよう！</h5>
       <% else %>
         <p>クイズを埋めたけど・・・あれ？ボタンを押すと<span class='text-danger'>クソコードが増えるぞ！？</span><br>あっ、取扱説明書に続きがある！<br>「最後にメソッドを使ってボタンを変換すること」？</p>
         <h5>正しく設定しなおそう。</h5>
       <% end %>
     </div>
-    <% unless current_user.answers.find_by(quiz_id: @quiz_id)&.currect? %>
+    <% unless current_user.answers.find_by(quiz_id: params[:quiz_id])&.currect? %>
       <div class='text-center mb-3'>
-        <%= render partial: '/levels/shared/answer_form', locals: { label: 'ボタンを変換しよう',quiz_id: @quiz_id } %>
+        <%= render partial: '/levels/shared/answer_form', locals: { label: 'ボタンを変換しよう',quiz_id: params[:quiz_id] } %>
       </div>
     <% end %>
     <div class='d-flex'>
@@ -19,13 +19,13 @@
         <p id='js-check'>def check_num(num)<br>  return 0<br>  if num >= 0<br>    return num<br>  end<br> end</p>
       </div>
       <div class='delete-btn-area'>
-        <% unless current_user.answers.find_by(quiz_id: @quiz_id)&.currect? %>
+        <% if current_user.answers.find_by(quiz_id: params[:quiz_id])&.currect? %>
           <%= link_to '#', remote: true do %>
-            <%= image_tag 'blue_cre_btn.png', size: '150x150', id: 'append-code-btn', onclick: 'appendCode()' %>
+            <%= image_tag 'red_del_btn.png', size: '150x150', onclick: 'lv1FinishBomb()' %>
           <% end %>
         <% else %>
           <%= link_to '#', remote: true do %>
-            <%= image_tag 'red_del_btn.png', size: '150x150', onclick: 'lv1FinishBomb()' %>
+            <%= image_tag 'blue_cre_btn.png', size: '150x150', id: 'append-code-btn', onclick: 'appendCode()' %>
           <% end %>
         <% end %>
         <p>設定</p>
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class='text-center mt-3 pb-5' id='js-append-finish-btn'>
-      <%= link_to t('defaults.return'), { controller: 'steps', action: 'show', name: 'step1' }, class: 'btn btn-success', id: 'js-delete-return-btn-for-level1' %>
+      <%= link_to t('defaults.return'), level_step_path(params[:level_id], Settings.Level1[:step1]), class: 'btn btn-success', id: 'js-delete-return-btn-for-level1' %>
       <div id='js-append-clear-btn-for-level1' style='display: none;'>
         <%= form_with url: record_path(params[:level_id], current_user.records.find_by(level_id: params[:level_id])), method: :patch, local: true do |f| %>
             <%= f.submit 'CLEAR!', class: 'btn btn-lg btn-danger rounded-pill' %>

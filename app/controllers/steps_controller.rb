@@ -5,7 +5,8 @@ class StepsController < ApplicationController
   # 各ステップの表示
   def show
     @answers = current_user.answers
-    level_id = params[:level_id]
-    render "levels/level#{level_id}/#{params[:name]}"
   end
+
+  # イントロダクションの表示
+  def introduction; end
 end
